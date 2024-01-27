@@ -1,11 +1,16 @@
 export const PALETTE = {
 	primary: {
-		100: '#FF5E4B',
-		200: '#FF4936',
-		300: '#FF3822',
+		100: '#7AEEBE',
+		200: '#588CDF',
 	},
-	secondary: '#35ECE5',
-	// tertiary: '#'
+	secondary: {
+		100: '#FF7BC3',
+		200: '#6451E0',
+	},
+	tertiary: {
+		100: '#FFB546',
+		200: '#FF6141',
+	},
 	fontColor: '#333333',
 	white: '#ffffff',
 	black: '#1E1E1E',
