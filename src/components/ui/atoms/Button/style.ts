@@ -1,7 +1,7 @@
-import { ButtonProps } from './../../../../types/button'
+import { ButtonProps } from './../../../../types/button';
 
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
-import theme from 'styles/theme'
+import styled, { css } from 'styled-components';
+import theme from 'styles/theme';
 
 const variantCSS = {
 	primary: css`
@@ -40,7 +40,7 @@ const variantCSS = {
 			${theme.PALETTE.tertiary[200]} 100%
 		); */
 	`,
-}
+};
 
 const sizeCSS = {
 	small: css`
@@ -68,7 +68,7 @@ const sizeCSS = {
 		font-size: 50px;
 		font-weight: bold;
 	`,
-}
+};
 
 const colorCSS = {
 	white: css`
@@ -77,7 +77,7 @@ const colorCSS = {
 	black: css`
 		color: ${({ theme }) => theme.PALETTE.fontColor.black};
 	`,
-}
+};
 
 const borderCSS = {
 	none: css`
@@ -104,7 +104,7 @@ const borderCSS = {
 			${theme.PALETTE.tertiary[200]} 100%
 		);
 	`,
-}
+};
 
 const disabledCSS = {
 	true: css`
@@ -118,7 +118,7 @@ const disabledCSS = {
 		) !important;
 		cursor: default !important;
 	`,
-}
+};
 
 export const Button = styled.button<ButtonProps>`
 	${({ size }) => sizeCSS[size]};
@@ -126,4 +126,5 @@ export const Button = styled.button<ButtonProps>`
 	${({ disable }) => disabledCSS[disable]};
 	${({ color }) => colorCSS[color]};
 	${({ border }) => borderCSS[border]};
-`
+	display: flex;
+`;

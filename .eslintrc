@@ -12,7 +12,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "unused-imports"],
+  "plugins": ["@typescript-eslint", "unused-imports", "eslint-plugin-prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -21,6 +21,7 @@
   "rules": {
     "react/jsx-uses-vars": "error",
     "react/jsx-uses-react": "error",
+    "prettier/prettier": "error",
     "space-before-function-paren": [
       "error",
       {
