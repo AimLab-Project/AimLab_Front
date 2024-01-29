@@ -1,3 +1,4 @@
+import { Theme } from 'styled-components'
 export const PALETTE = {
 	primary: {
 		100: '#7AEEBE',
@@ -11,12 +12,19 @@ export const PALETTE = {
 		100: '#FFB546',
 		200: '#FF6141',
 	},
-	fontColor: '#333333',
+	fontColor: {
+		white: '#DEE1E7',
+		black: '#3D4551',
+	},
 	white: '#ffffff',
 	black: '#1E1E1E',
 	background: {
-		white: '#fff',
-		black: '#1E1E1E',
+		white: '#F5F5F5',
+		black: {
+			100: '#000000',
+			200: '#171717',
+			300: '#383838',
+		},
 	},
 	error: '#f00',
 	gray: {
@@ -57,7 +65,7 @@ const FONT_LINE = {
 	large: '36px',
 }
 
-const theme = {
+const theme: Theme = {
 	PALETTE,
 	FONT_LINE,
 	FONT_SIZE,
