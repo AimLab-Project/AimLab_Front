@@ -1,3 +1,5 @@
+import { ButtonProps } from './../../../../types/button'
+
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components'
 import theme from 'styles/theme'
 
@@ -14,7 +16,7 @@ const variantCSS = {
 			${theme.PALETTE.primary[200]} 100%
 		); */
 	`,
-	secodary: css`
+	secondary: css`
 		background: linear-gradient(
 			180deg,
 			${theme.PALETTE.secondary[100]} 0%,
@@ -40,7 +42,7 @@ const variantCSS = {
 	`,
 }
 
-const sizeCSS: Record<string, FlattenSimpleInterpolation> = {
+const sizeCSS = {
 	small: css`
 		width: 160px;
 		height: 45px;
@@ -118,6 +120,10 @@ const disabledCSS = {
 	`,
 }
 
-export const Button = styled.button`
-	${({ size }) => sizeCSS[size]}
+export const Button = styled.button<ButtonProps>`
+	${({ size }) => sizeCSS[size]};
+	${({ variant }) => variantCSS[variant]};
+	${({ disable }) => disabledCSS[disable]};
+	${({ color }) => colorCSS[color]};
+	${({ border }) => borderCSS[border]};
 `

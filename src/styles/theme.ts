@@ -1,4 +1,4 @@
-import { Theme } from 'styled-components'
+import { DefaultTheme } from 'styled-components'
 export const PALETTE = {
 	primary: {
 		100: '#7AEEBE',
@@ -65,7 +65,7 @@ const FONT_LINE = {
 	large: '36px',
 }
 
-const theme: Theme = {
+const theme: DefaultTheme = {
 	PALETTE,
 	FONT_LINE,
 	FONT_SIZE,
