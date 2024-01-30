@@ -104,7 +104,7 @@ const sizeCSS = {
 // };
 
 const disabledCSS = {
-	true: css`
+	some: css`
 		color: ${theme.PALETTE.white};
 		font-weight: bold !important;
 		border: none !important;
@@ -115,6 +115,7 @@ const disabledCSS = {
 		) !important;
 		cursor: default !important;
 	`,
+	none: css``,
 };
 
 export const StyledButton = styled.button<ButtonProps>`
