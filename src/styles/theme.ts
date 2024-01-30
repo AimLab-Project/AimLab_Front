@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components'
+import { DefaultTheme } from 'styled-components';
 export const PALETTE = {
 	primary: {
 		100: '#7AEEBE',
@@ -12,10 +12,8 @@ export const PALETTE = {
 		100: '#FFB546',
 		200: '#FF6141',
 	},
-	fontColor: {
-		white: '#DEE1E7',
-		black: '#3D4551',
-	},
+	fwhite: '#DEE1E7',
+	fblack: '#3D4551',
 	white: '#ffffff',
 	black: '#1E1E1E',
 	background: {
@@ -38,7 +36,7 @@ export const PALETTE = {
 		800: '#666666',
 		900: '#555555',
 	},
-}
+};
 
 const FONT_SIZE = {
 	xxsmall: '12px',
@@ -50,26 +48,32 @@ const FONT_SIZE = {
 	xxlarge: '24px',
 	max: '30px',
 	full: '50px',
-}
+};
 
 const FONT_WEIGHT = {
 	light: '300',
 	regular: '400',
 	medium: '500',
 	bold: '700',
-}
+};
 
 const FONT_LINE = {
 	small: '16px',
 	medium: '24px',
 	large: '36px',
-}
+};
+
+// const FONT_COLOR = {
+// 	white: '#DEE1E7',
+// 	black: '#3D4551',
+// };
 
 const theme: DefaultTheme = {
 	PALETTE,
 	FONT_LINE,
 	FONT_SIZE,
 	FONT_WEIGHT,
-}
+	// FONT_COLOR,
+};
 
-export default theme
+export default theme;
