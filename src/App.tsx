@@ -8,7 +8,7 @@ import theme from './styles/theme'
 
 export const queryClient = new QueryClient({})
 
-const App = () => {
+const App: React.FC = () => {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
