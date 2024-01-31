@@ -33,8 +33,16 @@ export const Medium = {
 
 export const Large = {
 	args: {
-		label: '게임 하기',
+		label: '시작하기',
 		size: 'large',
+		variant: 'primary',
+	},
+};
+
+export const Xlarge = {
+	args: {
+		label: '게임 하기',
+		size: 'xlarge',
 		variant: 'secondary',
 	},
 };

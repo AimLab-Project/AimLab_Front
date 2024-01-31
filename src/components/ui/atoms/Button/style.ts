@@ -52,7 +52,6 @@ const sizeCSS = {
 		font-size: 20px;
 		font-weight: bold;
 	`,
-
 	medium: css`
 		color: ${theme.PALETTE.fblack};
 		width: 280px;
@@ -61,9 +60,16 @@ const sizeCSS = {
 		font-weight: bold;
 	`,
 	large: css`
-		color: ${theme.PALETTE.fblack};
+		color: ${theme.PALETTE.white};
+		width: 380px;
+		height: 50px;
+		font-size: 30px;
+		font-weight: bold;
+	`,
+	xlarge: css`
+		color: ${theme.PALETTE.white};
 		width: 470px;
-		height: 110px;
+		height: 85px;
 		font-size: 50px;
 		font-weight: bold;
 	`,

@@ -15,7 +15,7 @@ Button.PropTypes = {
 	/**
 	 * 버튼의 사이즈를 골라주세요.
 	 */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
+	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'full']),
 	/**
 	 * 버튼의 색상을 골라주세요.
 	 */
