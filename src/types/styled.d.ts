@@ -15,6 +15,7 @@ declare module 'styled-components' {
 				black: Record<string, string>;
 			};
 			error: string;
+			pass: string;
 			gray: Record<string, string>;
 		};
 		FONT_SIZE: {

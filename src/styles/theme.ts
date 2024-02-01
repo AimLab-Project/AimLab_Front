@@ -25,6 +25,7 @@ export const PALETTE = {
 		},
 	},
 	error: '#f00',
+	pass: '#79EBBE',
 	gray: {
 		100: '#F8F8F8',
 		200: '#EDEDED',
