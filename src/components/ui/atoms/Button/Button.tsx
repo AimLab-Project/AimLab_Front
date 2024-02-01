@@ -24,11 +24,15 @@ Button.PropTypes = {
 	 * 버튼 비활성화 하기
 	 */
 	disable: PropTypes.oneOf(['some', 'none']),
+	/**
+	 * 버튼 커버를 골라주세요.
+	 */
+	border: PropTypes.oneOf(['primary', 'secondary', 'teriary', 'none']),
 };
 
 Button.defaultProps = {
-	size: 'medium',
-	variant: 'priamry',
+	size: 'xlarge',
+	variant: 'primary',
 };
 
 export default Button;

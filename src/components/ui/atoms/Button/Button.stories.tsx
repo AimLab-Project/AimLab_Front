@@ -28,6 +28,7 @@ export const Medium = {
 		label: '분석 보러가기',
 		size: 'medium',
 		variant: 'primary',
+		border: 'primary',
 	},
 };
 

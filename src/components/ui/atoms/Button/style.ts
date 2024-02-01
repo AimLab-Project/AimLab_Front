@@ -10,11 +10,7 @@ const variantCSS = {
 			${theme.PALETTE.primary[100]} 0%,
 			${theme.PALETTE.primary[200]} 100%
 		);
-		/* border-image: linear-gradient(
-			180deg,
-			${theme.PALETTE.primary[100]} 0%,
-			${theme.PALETTE.primary[200]} 100%
-		); */
+		border: none;
 	`,
 	secondary: css`
 		color: ${theme.PALETTE.white};
@@ -23,11 +19,7 @@ const variantCSS = {
 			${theme.PALETTE.secondary[100]} 0%,
 			${theme.PALETTE.secondary[200]} 100%
 		);
-		/* border-image: linear-gradient(
-			180deg,
-			${theme.PALETTE.secondary[100]} 0%,
-			${theme.PALETTE.secondary[200]} 100%
-		); */
+		border: none;
 	`,
 	teriary: css`
 		color: ${theme.PALETTE.white};
@@ -36,12 +28,58 @@ const variantCSS = {
 			${theme.PALETTE.tertiary[100]} 0%,
 			${theme.PALETTE.tertiary[200]} 100%
 		);
-		/* border-image: linear-gradient(
-			180deg,
-			${theme.PALETTE.tertiary[100]} 0%,
-			${theme.PALETTE.tertiary[200]} 100%
-		); */
+		border: none;
 	`,
+};
+const borderCSS = {
+	primary: css`
+		background-image: linear-gradient(
+				180deg,
+				${theme.PALETTE.primary[100]} 0%,
+				${theme.PALETTE.primary[200]} 100%
+			),
+			linear-gradient(
+				-90deg,
+				${theme.PALETTE.primary[100]} 0%,
+				${theme.PALETTE.primary[200]} 100%
+			);
+		background-origin: border-box;
+		background-clip: padding-box, border-box;
+		border: 5px solid transparent;
+	`,
+	secondary: css`
+		color: ${theme.PALETTE.white};
+		background-image: linear-gradient(
+				180deg,
+				${theme.PALETTE.secondary[100]} 0%,
+				${theme.PALETTE.secondary[200]} 100%
+			),
+			linear-gradient(
+				-90deg,
+				${theme.PALETTE.secondary[100]} 0%,
+				${theme.PALETTE.secondary[200]} 100%
+			);
+		background-origin: border-box;
+		background-clip: padding-box, border-box;
+		border: 5px solid transparent;
+	`,
+	teriary: css`
+		color: ${theme.PALETTE.white};
+		background-image: linear-gradient(
+				-90deg,
+				${theme.PALETTE.tertiary[100]} 0%,
+				${theme.PALETTE.tertiary[200]} 100%
+			),
+			linear-gradient(
+				30deg,
+				${theme.PALETTE.tertiary[100]} 0%,
+				${theme.PALETTE.tertiary[200]} 100%
+			);
+		background-origin: border-box;
+		background-clip: padding-box, border-box;
+		border: 5px solid transparent;
+	`,
+	none: css``,
 };
 
 const sizeCSS = {
@@ -82,33 +120,6 @@ const sizeCSS = {
 	`,
 };
 
-// const borderCSS = {
-// 	none: css`
-// 		border: none;
-// 	`,
-// 	primary: css`
-// 		border-image: linear-gradient(
-// 			90deg,
-// 			${theme.PALETTE.primary[100]} 0%,
-// 			${theme.PALETTE.primary[200]} 100%
-// 		);
-// 	`,
-// 	secondary: css`
-// 		border-image: linear-gradient(
-// 			90deg,
-// 			${theme.PALETTE.secondary[100]} 0%,
-// 			${theme.PALETTE.secondary[200]} 100%
-// 		);
-// 	`,
-// 	teriary: css`
-// 		border-image: linear-gradient(
-// 			90deg,
-// 			${theme.PALETTE.tertiary[100]} 0%,
-// 			${theme.PALETTE.tertiary[200]} 100%
-// 		);
-// 	`,
-// };
-
 const disabledCSS = {
 	some: css`
 		color: ${theme.PALETTE.white};
@@ -128,7 +139,7 @@ export const StyledButton = styled.button<ButtonProps>`
 	${({ size }) => sizeCSS[size]};
 	${({ variant }) => variantCSS[variant]};
 	${({ disable }) => disabledCSS[disable]};
-	border: none;
+	${({ border }) => borderCSS[border]};
 	border-radius: 14px;
 	cursor: pointer;
 `;
