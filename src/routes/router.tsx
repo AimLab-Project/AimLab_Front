@@ -1,8 +1,9 @@
-import MainLayout from 'components/layout/MainLayout'
-import AuthPage from 'pages/AuthPage'
-import MainPage from 'pages/MainPage'
-import NotFoundPage from 'pages/NotFoundPage'
-import { createBrowserRouter } from 'react-router-dom'
+import MainLayout from 'components/layout/MainLayout';
+import AuthPage from 'pages/AuthPage';
+import MainPage from 'pages/MainPage';
+import NotFoundPage from 'pages/NotFoundPage';
+import { createBrowserRouter } from 'react-router-dom';
+import React from 'react';
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +23,6 @@ const router = createBrowserRouter([
 		path: '/*',
 		element: <NotFoundPage />,
 	},
-])
+]);
 
-export default router
+export default router;
