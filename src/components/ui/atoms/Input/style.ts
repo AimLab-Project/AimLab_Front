@@ -23,6 +23,7 @@ export const StyledInputBox = styled.div<{ width: string }>`
 		color: ${theme.PALETTE.gray[700]};
 		display: flex;
 		align-items: center;
+		cursor: pointer;
 	}
 	.login-error {
 		padding: 0 8px;
@@ -48,9 +49,6 @@ export const StyledInput = styled.input<{ error: string }>`
 		${({ error }) => (error ? theme.PALETTE.error : theme.PALETTE.gray[500])};
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px 4px rgba(0, 0, 0, 0.1);
-	svg {
-		color: ${theme.PALETTE.gray[700]};
-	}
 	&::placeholder {
 		color: #ccc;
 	}

@@ -1,6 +1,4 @@
 import Input from './Input';
-import React from 'react';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default {
 	title: 'Input',
@@ -35,7 +33,7 @@ export const Verification = {
 	args: {
 		width: '315px',
 		placeholder: '인증번호',
-		data: '3:00',
+		time: '3:00',
 		pass: '인증번호가 확인되었습니다.',
 	},
 };
@@ -60,7 +58,7 @@ export const Password = {
 	args: {
 		placeholder: '비밀번호(8자리 이상, 문자/숫자/기호 사용 가능)',
 		error: '비밀번호는 8자리 이상 영문, 숫자를 포함해 주세요.',
-		data: <VisibilityOffIcon />,
+		icon: true,
 	},
 };
 
