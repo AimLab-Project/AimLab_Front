@@ -7,7 +7,7 @@ export const StyledInputBox = styled.div<{ width: string }>`
 	position: relative;
 	gap: 8px;
 	${({ width }) => (width ? '' : 'flex-grow: 1;')};
-	width: ${({ width }) => (width ? width : '100%')};
+	width: ${({ width }) => width};
 	.error {
 		color: ${theme.PALETTE.error};
 		font-size: ${theme.FONT_SIZE.small};
@@ -39,14 +39,14 @@ export const StyledInputBox = styled.div<{ width: string }>`
 	}
 `;
 
-export const StyledInput = styled.input<{ error: string }>`
+export const StyledInput = styled.input`
 	padding: 0 16px;
 	height: 45px;
 	line-height: 45px;
 	font-size: ${theme.FONT_SIZE.large};
 	color: ${theme.PALETTE.fblack};
-	border: 1px solid
-		${({ error }) => (error ? theme.PALETTE.error : theme.PALETTE.gray[500])};
+	border: 1px solid ${theme.PALETTE.gray[500]};
+
 	box-sizing: border-box;
 	box-shadow: inset 0px 4px 4px 4px rgba(0, 0, 0, 0.1);
 	&::placeholder {

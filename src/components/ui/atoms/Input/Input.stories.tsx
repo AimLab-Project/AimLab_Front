@@ -59,6 +59,7 @@ export const Password = {
 		placeholder: '비밀번호(8자리 이상, 문자/숫자/기호 사용 가능)',
 		error: '비밀번호는 8자리 이상 영문, 숫자를 포함해 주세요.',
 		icon: true,
+		type: 'password',
 	},
 };
 
