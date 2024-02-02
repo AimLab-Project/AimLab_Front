@@ -24,6 +24,18 @@ export const StyledInputBox = styled.div<{ width: string }>`
 		display: flex;
 		align-items: center;
 	}
+	.login-error {
+		padding: 0 8px;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		height: 45px;
+		background: rgba(255, 114, 70, 0.2);
+		border-radius: 10px;
+		color: #ff7246;
+		font-size: 14px;
+		font-weight: 400;
+	}
 `;
 
 export const StyledInput = styled.input<{ error: string }>`

@@ -51,7 +51,7 @@ export const ErrorNickName = {
 export const PassNickName = {
 	args: {
 		width: '315px',
-		placeholer: '닉네임',
+		placeholder: '닉네임',
 		pass: '사용 가능한 닉네임입니다.',
 	},
 };
@@ -68,5 +68,13 @@ export const PasswordConfirm = {
 	args: {
 		placeholder: '비밀번호 확인',
 		error: '비밀번호가 다릅니다.',
+	},
+};
+
+export const LoginError = {
+	args: {
+		width: '375px',
+		placeholder: '아이디(이메일)',
+		login: '이메일과 비밀번호가 일치하지 않습니다. 다시 시도해주세요.',
 	},
 };
