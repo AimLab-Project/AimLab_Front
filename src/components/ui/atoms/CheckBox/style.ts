@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from 'styles/theme';
-
-export interface CheckProps {
-	variant: 'primary' | 'secondary' | 'teriary';
-}
+import { CheckProps } from './CheckBox';
 
 const variantCSS = {
 	primary: css`
