@@ -1,22 +1,23 @@
-import MainFooter from 'components/ui/organisms/MainFooter/MainFooter'
-import MainHeader from 'components/ui/organisms/MainHeader/MainHeader'
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import styled from 'styled-components'
+import MainFooter from 'components/ui/organisms/MainFooter/MainFooter';
+import MainHeader from 'components/ui/organisms/MainHeader/MainHeader';
 
-const MainLayout: React.FC = () => {
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
+
+const MainLayout = () => {
 	return (
 		<Wrapper>
 			<MainHeader />
 			<Outlet />
 			<MainFooter />
 		</Wrapper>
-	)
-}
+	);
+};
 
-export default MainLayout
+export default MainLayout;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	position: relative;
 	min-height: 100vh;
-`
+`;

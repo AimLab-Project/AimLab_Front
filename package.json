@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@emotion/react": "^11.11.3",
 		"@emotion/styled": "^11.11.0",
+		"@mui/icons-material": "^5.15.7",
 		"@mui/material": "^5.15.5",
 		"@tanstack/react-query": "^5.17.19",
 		"@testing-library/jest-dom": "^5.17.0",
@@ -23,7 +24,6 @@
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.49.3",
 		"react-router-dom": "^6.21.2",
-		"react-scripts": "5.0.1",
 		"react-unity-webgl": "^9.5.0",
 		"recoil": "^0.7.7",
 		"storybook": "^7.6.10",
@@ -83,6 +83,10 @@
 		"husky": "^9.0.7",
 		"prettier": "^2.8.8",
 		"prop-types": "^15.8.1",
+		"react-scripts": "^5.0.1",
 		"webpack": "^5.90.0"
+	},
+	"overrides": {
+		"react-refresh": "0.11.0"
 	}
 }
