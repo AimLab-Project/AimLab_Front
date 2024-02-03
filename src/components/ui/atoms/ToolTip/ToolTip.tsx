@@ -2,13 +2,14 @@ import React from 'react';
 import { StyledTooltip } from './style';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
-export interface TootipProps {
-	backColor: 'blue' | 'red' | 'yellow' | 'black';
+export interface TooltipProps {
+	colors: 'blue' | 'red' | 'yellow' | 'black';
+	label?: string;
 }
 
-const ToolTip = ({ backColor }: TootipProps) => {
+const ToolTip = ({ colors }: TooltipProps) => {
 	return (
-		<StyledTooltip backColor={backColor}>
+		<StyledTooltip colors={colors}>
 			<QuestionMarkIcon />
 		</StyledTooltip>
 	);

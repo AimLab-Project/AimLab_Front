@@ -8,24 +8,24 @@ export default {
 
 export const Blue = {
 	args: {
-		backColor: 'blue',
+		colors: 'blue',
 	},
 };
 
 export const Red = {
 	args: {
-		backColor: 'red',
+		colors: 'red',
 	},
 };
 
 export const Yellow = {
 	args: {
-		backColor: 'yellow',
+		colors: 'yellow',
 	},
 };
 
 export const Black = {
 	args: {
-		backColor: 'black',
+		colors: 'black',
 	},
 };
