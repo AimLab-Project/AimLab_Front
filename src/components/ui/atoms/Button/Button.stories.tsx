@@ -28,13 +28,22 @@ export const Medium = {
 		label: '분석 보러가기',
 		size: 'medium',
 		variant: 'primary',
+		border: 'primary',
 	},
 };
 
 export const Large = {
 	args: {
-		label: '게임 하기',
+		label: '시작하기',
 		size: 'large',
+		variant: 'primary',
+	},
+};
+
+export const Xlarge = {
+	args: {
+		label: '게임 하기',
+		size: 'xlarge',
 		variant: 'secondary',
 	},
 };
