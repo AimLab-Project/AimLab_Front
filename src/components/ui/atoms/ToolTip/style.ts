@@ -64,6 +64,7 @@ export const StyledTooltipWrapper = styled.div`
 
 export const StyledTooltipMessage = styled.div<TooltipProps>`
 	position: absolute;
+	min-width: 70px;
 	white-space: normal;
 	height: auto;
 	${({ colors }) => backColorCSS[colors]};
