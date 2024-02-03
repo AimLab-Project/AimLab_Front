@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { StyledInputGroup } from './style';
 
-const InputGroup = ({ ...args }) => {
-	return <StyledInputGroup {...args}>{args.children}</StyledInputGroup>;
+const InputGroup = ({ children }: { children: ReactNode }) => {
+	return <StyledInputGroup>{children}</StyledInputGroup>;
 };
 
 export default InputGroup;

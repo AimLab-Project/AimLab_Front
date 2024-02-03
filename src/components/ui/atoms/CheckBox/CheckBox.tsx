@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { CheckProps, StyledCheckBox } from './style';
+import { StyledCheckBox } from './style';
 import CheckIcon from '@mui/icons-material/Check';
 import theme from 'styles/theme';
+
+export interface CheckProps {
+	variant: 'primary' | 'secondary' | 'teriary';
+}
 
 const CheckBox = ({ variant }: CheckProps) => {
 	const [check, setCheck] = useState(false);
