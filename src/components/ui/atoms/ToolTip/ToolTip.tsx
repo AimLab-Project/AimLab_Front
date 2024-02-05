@@ -1,5 +1,9 @@
 import React from 'react';
-import { StyledTooltip } from './style';
+import {
+	StyledTooltip,
+	StyledTooltipMessage,
+	StyledTooltipWrapper,
+} from './style';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
 export interface TooltipProps {
@@ -7,11 +11,18 @@ export interface TooltipProps {
 	label?: string;
 }
 
-const ToolTip = ({ colors }: TooltipProps) => {
+const ToolTip = ({ colors, label }: TooltipProps) => {
 	return (
-		<StyledTooltip colors={colors}>
-			<QuestionMarkIcon />
-		</StyledTooltip>
+		<>
+			<StyledTooltipWrapper>
+				<StyledTooltip colors={colors}>
+					<QuestionMarkIcon />
+					<StyledTooltipMessage className="content" colors={colors}>
+						{label}
+					</StyledTooltipMessage>
+				</StyledTooltip>
+			</StyledTooltipWrapper>
+		</>
 	);
 };
 

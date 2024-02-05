@@ -43,8 +43,15 @@ const borderColorCSS = {
 	`,
 };
 
+export const StyledTooltipWrapper = styled.div`
+	max-width: 600px;
+	height: auto;
+	position: relative;
+`;
+
 export const StyledTooltip = styled.div<TooltipProps>`
 	${({ colors }) => backColorCSS[colors]};
+	position: absolute;
 	width: 27px;
 	height: 27px;
 	color: #fff;
@@ -52,34 +59,36 @@ export const StyledTooltip = styled.div<TooltipProps>`
 	border-radius: 50%;
 	cursor: pointer;
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+
+	&:hover .content {
+		visibility: visible;
+	}
 `;
 
-export const StyledTooltipWrapper = styled.div`
-	max-width: 600px;
-	height: 50px;
-	position: relative;
-`;
-
-export const StyledTooltipMessage = styled.div<TooltipProps>`
-	position: absolute;
-	min-width: 70px;
-	white-space: normal;
-	height: auto;
+export const StyledTooltipMessage = styled.span<TooltipProps>`
 	${({ colors }) => backColorCSS[colors]};
+	visibility: hidden;
+	position: absolute;
+	white-space: nowrap;
+	height: auto;
 	color: #fff;
 	border-radius: 9px;
 	padding: 8px;
 	display: flex;
 	align-items: center;
-`;
+	bottom: 150%;
+	right: 0;
 
-export const StyledTooltipMessageTail = styled.div<TooltipProps>`
-	position: absolute;
-	width: 0;
-	height: 0;
-	right: 16px;
-	bottom: -18px;
-	${({ colors }) => borderColorCSS[colors]}
+	&::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		right: 1.5%;
+		bottom: -18px;
+		${({ colors }) => borderColorCSS[colors]};
+	}
 `;
