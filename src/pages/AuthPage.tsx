@@ -1,9 +1,14 @@
+import LoginTemplate from 'components/templates/LoginTemplate/LoginTemplate';
 import React from 'react';
 import styled from 'styled-components';
 import authBG from '../assets/BG/auth_bg.png';
 
 const AuthPage = () => {
-	return <Wrapper></Wrapper>;
+	return (
+		<Wrapper>
+			<LoginTemplate />
+		</Wrapper>
+	);
 };
 
 export default AuthPage;
