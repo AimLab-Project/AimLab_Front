@@ -17,13 +17,13 @@ const CheckBox = ({ variant }: CheckProps) => {
 	let iconColor;
 	switch (variant) {
 		case 'primary':
-			iconColor = theme.PALETTE.primary[100];
+			iconColor = theme.PALETTE.primary[200];
 			break;
 		case 'secondary':
-			iconColor = theme.PALETTE.secondary[100];
+			iconColor = theme.PALETTE.secondary[200];
 			break;
 		case 'teriary':
-			iconColor = theme.PALETTE.tertiary[100];
+			iconColor = theme.PALETTE.tertiary[200];
 			break;
 		default:
 			iconColor = 'black'; // default color
@@ -32,7 +32,7 @@ const CheckBox = ({ variant }: CheckProps) => {
 
 	return (
 		<StyledCheckBox variant={variant} onClick={handleCheck}>
-			{check && <CheckIcon style={{ color: iconColor }} fontSize={'large'} />}
+			{check && <CheckIcon style={{ color: iconColor }} fontSize={'medium'} />}
 		</StyledCheckBox>
 	);
 };

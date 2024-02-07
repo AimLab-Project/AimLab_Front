@@ -34,8 +34,9 @@ const variantCSS = {
 
 export const StyledCheckBox = styled.div<CheckProps>`
 	${({ variant }) => variantCSS[variant]};
-	width: 30px;
-	height: 30px;
+	background-color: #fff;
+	width: 20px;
+	height: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
