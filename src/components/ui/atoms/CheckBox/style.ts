@@ -4,7 +4,7 @@ import { CheckProps } from './CheckBox';
 
 const variantCSS = {
 	primary: css`
-		border: 5px solid transparent;
+		border: 3px solid transparent;
 		border-image: linear-gradient(
 			270deg,
 			${theme.PALETTE.primary[100]} 0%,
@@ -13,7 +13,7 @@ const variantCSS = {
 		border-image-slice: 1;
 	`,
 	secondary: css`
-		border: 5px solid transparent;
+		border: 3px solid transparent;
 		border-image: linear-gradient(
 			270deg,
 			${theme.PALETTE.secondary[100]} 0%,
@@ -22,7 +22,7 @@ const variantCSS = {
 		border-image-slice: 1;
 	`,
 	teriary: css`
-		border: 5px solid transparent;
+		border: 3px solid transparent;
 		border-image: linear-gradient(
 			270deg,
 			${theme.PALETTE.tertiary[100]} 0%,
@@ -35,8 +35,8 @@ const variantCSS = {
 export const StyledCheckBox = styled.div<CheckProps>`
 	${({ variant }) => variantCSS[variant]};
 	background-color: #fff;
-	width: 20px;
-	height: 20px;
+	width: 14px;
+	height: 14px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

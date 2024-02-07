@@ -32,7 +32,7 @@ const CheckBox = ({ variant }: CheckProps) => {
 
 	return (
 		<StyledCheckBox variant={variant} onClick={handleCheck}>
-			{check && <CheckIcon style={{ color: iconColor }} fontSize={'medium'} />}
+			{check && <CheckIcon style={{ color: iconColor }} fontSize={'small'} />}
 		</StyledCheckBox>
 	);
 };
