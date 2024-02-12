@@ -1,8 +1,13 @@
 import React from 'react';
-import { ButtonProps } from 'types/button';
 import { StyledButton } from './style';
 import PropTypes from 'prop-types';
-
+export interface ButtonProps {
+	variant: 'primary' | 'secondary' | 'teriary';
+	size: 'small' | 'medium' | 'large' | 'xlarge' | 'full';
+	disable: 'some' | 'none';
+	label?: string;
+	border: 'primary' | 'secondary' | 'teriary' | 'none';
+}
 const Button = ({ ...args }: ButtonProps) => {
 	return <StyledButton {...args}>{args.label}</StyledButton>;
 };

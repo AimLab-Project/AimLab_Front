@@ -1,7 +1,6 @@
-import { ButtonProps } from './../../../../types/button';
-
 import styled, { css } from 'styled-components';
 import theme from 'styles/theme';
+import { ButtonProps } from './Button';
 
 const variantCSS = {
 	primary: css`
