@@ -7,60 +7,61 @@ import theme from 'styles/theme';
 
 const LoginTemplate = () => {
 	return (
-		<Wrapper>
-			<Container>
-				<div>
-					<div>E-MAIL</div>
-					<div>
-						<Input width="100%" placeholder="이메일" />
-					</div>
-				</div>
-				<div>
-					<div>PASSWORD</div>
-					<div>
-						<Input
-							width="100%"
-							placeholder="비밀번호(8자리 이상 문자, 숫자, 특수문자 사용)"
-							type="password"
-							icon={true}
-						/>
-					</div>
-				</div>
-				<div>
-					<div>
+		<Container>
+			<Content>
+				<Wrapper>
+					<InputTitle>E-MAIL</InputTitle>
+
+					<Input width="100%" placeholder="이메일" />
+				</Wrapper>
+				<Wrapper>
+					<InputTitle>PASSWORD</InputTitle>
+					<Input
+						width="100%"
+						placeholder="비밀번호(8자리 이상 문자, 숫자, 특수문자 사용)"
+						type="password"
+						icon={true}
+					/>
+				</Wrapper>
+				<Wrapper>
+					<Checks>
 						<CheckBox variant="primary" />
 						<span>로그인 상태 유지</span>
-					</div>
-					<div>
 						<CheckBox variant="primary" />
 						<span>아이디 저장</span>
-					</div>
-				</div>
-				<div>
-					<Button
-						label="LOGIN"
-						variant="primary"
-						size="large"
-						disable="none"
-						border="none"
-					/>
-				</div>
-				<div>
-					<a href="#">비밀번호 찾기</a>|<a href="#">회원가입</a>
-				</div>
-				<div>
-					<div />
-					<span>간편 로그인</span>
-					<div />
-				</div>
-			</Container>
-		</Wrapper>
+					</Checks>
+				</Wrapper>
+				<Wrapper>
+					<ETC>
+						<Button
+							label="LOGIN"
+							variant="primary"
+							size="large"
+							disable="none"
+							border="none"
+						/>
+					</ETC>
+				</Wrapper>
+				<Wrapper>
+					<AuthLink>
+						<a href="#">비밀번호 찾기</a>|<a href="#">회원가입</a>
+					</AuthLink>
+				</Wrapper>
+				<Wrapper>
+					<ETC>
+						<Line />
+						<span>간편 로그인</span>
+						<Line />
+					</ETC>
+				</Wrapper>
+			</Content>
+		</Container>
 	);
 };
 
 export default LoginTemplate;
 
-const Wrapper = styled.form`
+const Container = styled.form`
 	width: 800px;
 	height: 650px;
 	box-sizing: border-box;
@@ -77,11 +78,52 @@ const Wrapper = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	color: ${theme.PALETTE.fwhite};
 	font-size: ${theme.FONT_SIZE.small};
 `;
 
-const Container = styled.div`
+const Content = styled.div`
 	width: 100%;
 	max-width: 400px;
+`;
+
+const Wrapper = styled.div`
+	padding: 15px 0;
+`;
+
+const InputTitle = styled.div`
+	padding-bottom: 10px;
+`;
+
+const Checks = styled.div`
+	display: flex;
+	gap: 5px;
+`;
+
+const AuthLink = styled.div`
+	color: ${theme.PALETTE.primary[200]};
+	a {
+		color: ${theme.PALETTE.primary[200]};
+		text-decoration: none;
+		padding: 0 10px;
+		font-weight: bold;
+	}
+	display: flex;
+	justify-content: center;
+`;
+
+const ETC = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	span {
+		padding: 0 10px;
+	}
+`;
+
+const Line = styled.div`
+	width: 130px;
+	height: 0px;
+	border: 1px solid #ffffff;
 `;
