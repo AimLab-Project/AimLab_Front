@@ -94,17 +94,24 @@ const Wrapper = styled.div`
 
 const InputTitle = styled.div`
 	padding-bottom: 10px;
+	font-family: 'Roboto Serif';
+	font-weight: 400;
 `;
 
 const Checks = styled.div`
 	display: flex;
 	gap: 5px;
+	span {
+		font-family: 'Roboto Serif';
+		font-weight: 400;
+	}
 `;
 
 const AuthLink = styled.div`
 	color: ${theme.PALETTE.primary[200]};
 	a {
 		color: ${theme.PALETTE.primary[200]};
+		font-family: 'Roboto Mono';
 		text-decoration: none;
 		padding: 0 10px;
 		font-weight: bold;
@@ -119,6 +126,8 @@ const ETC = styled.div`
 	align-items: center;
 	span {
 		padding: 0 10px;
+		font-family: 'Roboto Mono';
+		font-weight: 400;
 	}
 `;
 
