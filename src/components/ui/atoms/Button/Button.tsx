@@ -7,6 +7,7 @@ export interface ButtonProps {
 	disable: 'some' | 'none';
 	label?: string;
 	border: 'primary' | 'secondary' | 'teriary' | 'none';
+	onClick?: () => void;
 }
 const Button = ({ ...args }: ButtonProps) => {
 	return <StyledButton {...args}>{args.label}</StyledButton>;

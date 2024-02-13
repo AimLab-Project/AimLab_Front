@@ -7,7 +7,7 @@ import theme from 'styles/theme';
 
 const LoginTemplate = () => {
 	return (
-		<Container>
+		<Container height="650px">
 			<Content>
 				<Wrapper>
 					<InputTitle>E-MAIL</InputTitle>
@@ -61,9 +61,10 @@ const LoginTemplate = () => {
 
 export default LoginTemplate;
 
-const Container = styled.form`
+export const Container = styled.form<{ height?: string }>`
 	width: 800px;
-	height: 650px;
+	min-height: 650px;
+	height: ${props => props.height || '100%'};
 	box-sizing: border-box;
 	border-radius: 30px;
 	background: radial-gradient(
@@ -83,9 +84,9 @@ const Container = styled.form`
 	font-size: ${theme.FONT_SIZE.small};
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
 	width: 100%;
-	max-width: 400px;
+	max-width: 500px;
 `;
 
 const Wrapper = styled.div`
