@@ -8,9 +8,9 @@ import theme from 'styles/theme';
 import { Container, Content } from '../LoginTemplate/LoginTemplate';
 
 const SingupTemplate = () => {
-	const [error, setError] = useState('');
-	const errorTest = () => {
-		setError('잘못된 이메일 입니다.');
+	const [disabled, setDisabled] = useState(false);
+	const handleClick = () => {
+		setDisabled(true);
 	};
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -20,14 +20,14 @@ const SingupTemplate = () => {
 			<Content>
 				<Wrapper>
 					<InputGroup>
-						<Input width="315px" placeholder="아이디(이메일)" error={error} />
+						<Input width="315px" placeholder="아이디(이메일)" />
 						<Button
 							label="인증하기"
 							size="small"
 							variant="primary"
-							disable="none"
 							border="none"
-							onClick={errorTest}
+							disable={disabled}
+							onClick={handleClick}
 						/>
 					</InputGroup>
 				</Wrapper>
@@ -38,7 +38,6 @@ const SingupTemplate = () => {
 							label="인증번호 확인"
 							size="small"
 							variant="primary"
-							disable="none"
 							border="none"
 						/>
 					</InputGroup>
@@ -50,7 +49,6 @@ const SingupTemplate = () => {
 							label="닉네임 확인"
 							size="small"
 							variant="primary"
-							disable="none"
 							border="none"
 						/>
 					</InputGroup>
@@ -77,7 +75,6 @@ const SingupTemplate = () => {
 					<Button
 						label="시작하기"
 						variant="primary"
-						disable="none"
 						border="none"
 						size="large"
 					/>

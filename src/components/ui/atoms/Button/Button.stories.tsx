@@ -19,7 +19,7 @@ export const Disabled = {
 		label: '인증하기',
 		size: 'small',
 		variant: 'primary',
-		disable: 'some',
+		disable: true,
 	},
 };
 

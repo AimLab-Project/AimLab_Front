@@ -118,26 +118,26 @@ const sizeCSS = {
 		font-weight: bold;
 	`,
 };
-
-const disabledCSS = {
-	some: css`
-		color: ${theme.PALETTE.white};
-		font-weight: bold !important;
-		border: none !important;
-		background: linear-gradient(
-			180deg,
-			${theme.PALETTE.gray[200]} 0%,
-			${theme.PALETTE.gray[700]} 100%
-		) !important;
-		cursor: default !important;
-	`,
-	none: css``,
-};
+const disabledCSS = css<ButtonProps>`
+	${({ disable }) =>
+		disable &&
+		css`
+			color: ${theme.PALETTE.white};
+			font-weight: bold !important;
+			border: none !important;
+			background: linear-gradient(
+				180deg,
+				${theme.PALETTE.gray[200]} 0%,
+				${theme.PALETTE.gray[700]} 100%
+			) !important;
+			cursor: default !important;
+		`}
+`;
 
 export const StyledButton = styled.button<ButtonProps>`
 	${({ size }) => sizeCSS[size]};
 	${({ variant }) => variantCSS[variant]};
-	${({ disable }) => disabledCSS[disable]};
+	${disabledCSS}
 	${({ border }) => borderCSS[border]};
 	border-radius: 14px;
 	cursor: pointer;

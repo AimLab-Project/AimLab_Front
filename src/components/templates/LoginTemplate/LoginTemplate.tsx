@@ -37,7 +37,6 @@ const LoginTemplate = () => {
 							label="LOGIN"
 							variant="primary"
 							size="large"
-							disable="none"
 							border="none"
 						/>
 					</ETC>
@@ -89,7 +88,7 @@ export const Content = styled.div`
 	max-width: 500px;
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	padding: 15px 0;
 `;
 

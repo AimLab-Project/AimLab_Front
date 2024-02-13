@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export interface ButtonProps {
 	variant: 'primary' | 'secondary' | 'teriary';
 	size: 'small' | 'medium' | 'large' | 'xlarge' | 'full';
-	disable: 'some' | 'none';
+	disable?: boolean;
 	label?: string;
 	border: 'primary' | 'secondary' | 'teriary' | 'none';
 	onClick?: () => void;

@@ -18,7 +18,7 @@ export const defaultGroup = {
 					label={'인증하기'}
 					size={'small'}
 					variant={'primary'}
-					disable={'none'}
+					disable={false}
 					border={'none'}
 				/>
 			</>
@@ -39,7 +39,7 @@ export const Error = {
 					label={'인증하기'}
 					size={'small'}
 					variant={'primary'}
-					disable={'none'}
+					disable={false}
 					border={'none'}
 				/>
 			</>
@@ -60,7 +60,7 @@ export const Disabled = {
 					label={'인증하기'}
 					size={'small'}
 					variant={'primary'}
-					disable={'some'}
+					disable={false}
 					border={'none'}
 				/>
 			</>
@@ -82,7 +82,7 @@ export const Verification = {
 					label={'인증번호 확인'}
 					size={'small'}
 					variant={'primary'}
-					disable={'some'}
+					disable={false}
 					border={'none'}
 				/>
 			</>
@@ -103,7 +103,7 @@ export const NickName = {
 					label={'닉네임 확인'}
 					size={'small'}
 					variant={'primary'}
-					disable={'none'}
+					disable={false}
 					border={'none'}
 				/>
 			</>
