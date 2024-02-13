@@ -100,7 +100,7 @@ const Checks = styled.div`
 	}
 `;
 
-const ButtonBox = styled.div`
+export const ButtonBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;

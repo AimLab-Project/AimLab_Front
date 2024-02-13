@@ -78,9 +78,10 @@ export const Container = styled.form<{ height?: string }>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	color: ${theme.PALETTE.fwhite};
 	font-size: ${theme.FONT_SIZE.small};
+	padding-top: 100px;
 `;
 
 export const Content = styled.div`

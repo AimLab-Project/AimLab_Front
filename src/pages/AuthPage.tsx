@@ -1,4 +1,4 @@
-import SingupTemplate from 'components/templates/SingupTemplate/SingupTemplate';
+import RePasswordTemplate from 'components/templates/RePasswordTemplate/RePasswordTemplate';
 
 import React from 'react';
 import styled from 'styled-components';
@@ -8,8 +8,9 @@ const AuthPage = () => {
 	return (
 		<Wrapper>
 			<Title>aim sharp</Title>
-			<SingupTemplate />
+			{/* <SingupTemplate /> */}
 			{/* <LoginTemplate /> */}
+			<RePasswordTemplate />
 		</Wrapper>
 	);
 };
