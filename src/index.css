@@ -48,13 +48,13 @@
 	font-weight: 700;
 }
 @font-face {
-	font-family: 'Old Standart TT';
+	font-family: 'Old Standard TT';
 	src: url('./assets/fonts/OldStandardTT-Regular.ttf') format('truetype');
 	font-display: swap;
 	font-weight: 400;
 }
 @font-face {
-	font-family: 'Old Standart TT';
+	font-family: 'Old Standard TT';
 	src: url('./assets/fonts/OldStandardTT-Bold.ttf') format('truetype');
 	font-display: swap;
 	font-weight: 700;
