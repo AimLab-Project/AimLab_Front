@@ -36,7 +36,7 @@ const Container = styled.div`
 const Title = styled.span`
 	text-shadow: -1px 0px #fff, 0px 1px #fff, 1px 0px #fff, 0px -1px #fff;
 	text-transform: uppercase;
-	font-family: 'Old Standart TT';
+	font-family: 'Old Standard TT';
 	font-weight: 400;
 	font-size: 60px;
 	width: 780px;
