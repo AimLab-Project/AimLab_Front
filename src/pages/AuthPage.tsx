@@ -6,18 +6,18 @@ import BG from '../assets/image/BG/auth_BG.png';
 
 const AuthPage = () => {
 	return (
-		<Wrapper>
+		<Container>
 			<Title>aim sharp</Title>
 			{/* <SingupTemplate /> */}
 			{/* <LoginTemplate /> */}
 			<RePasswordTemplate />
-		</Wrapper>
+		</Container>
 	);
 };
 
 export default AuthPage;
 
-const Wrapper = styled.div`
+const Container = styled.div`
 	width: 100%;
 	height: 100vh;
 	background: url(${BG}),
