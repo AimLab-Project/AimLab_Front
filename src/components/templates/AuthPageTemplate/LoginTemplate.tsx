@@ -91,6 +91,7 @@ export const Content = styled.div`
 
 export const Wrapper = styled.div`
 	padding: 15px 0;
+	height: 50px;
 `;
 
 const InputTitle = styled.div`
