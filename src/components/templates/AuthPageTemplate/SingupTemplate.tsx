@@ -5,7 +5,7 @@ import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
-import { Container, Content } from '../LoginTemplate/LoginTemplate';
+import { Container, Content } from './LoginTemplate';
 
 const SingupTemplate = () => {
 	const [disabled, setDisabled] = useState(false);

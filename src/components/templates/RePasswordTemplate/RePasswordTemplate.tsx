@@ -3,8 +3,8 @@ import Input from 'components/ui/atoms/Input/Input';
 import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import React from 'react';
 import styled from 'styled-components';
-import { Container, Content, Wrapper } from '../LoginTemplate/LoginTemplate';
-import { ButtonBox } from '../SingupTemplate/SingupTemplate';
+import { Container, Content, Wrapper } from '../AuthPageTemplate/LoginTemplate';
+import { ButtonBox } from '../AuthPageTemplate/SingupTemplate';
 
 const RePasswordTemplate = () => {
 	const data = {
@@ -15,7 +15,7 @@ const RePasswordTemplate = () => {
 			<Content>
 				<Wrapper>
 					<InputGroup>
-						<Input width="315px" placeholder="아이디(이메일)" />
+						<Input width="315px" placeholder="아이디(이메일)" error="eee" />
 						<Button
 							size="small"
 							variant="primary"
@@ -27,7 +27,12 @@ const RePasswordTemplate = () => {
 				</Wrapper>
 				<Wrapper>
 					<InputGroup>
-						<Input width="315px" placeholder="인증번호" time={data.time} />
+						<Input
+							width="315px"
+							placeholder="인증번호"
+							time={data.time}
+							error="eee"
+						/>
 						<Button
 							size="small"
 							variant="primary"
