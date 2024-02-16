@@ -1,4 +1,4 @@
-import RePasswordTemplate from 'components/templates/RePasswordTemplate/RePasswordTemplate';
+import RePasswordTemplate from 'components/templates/MyPageTemplate/RePasswordTemplate';
 
 import React from 'react';
 import styled from 'styled-components';
