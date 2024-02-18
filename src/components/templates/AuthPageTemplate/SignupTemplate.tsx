@@ -3,30 +3,43 @@ import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
 import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import { Container, Content } from './LoginTemplate';
-import { RegisterSchema } from 'components/validations/registerValidation';
+import { RegisterSchema } from 'components/validations/validations';
+
+interface FormValues {
+	email: string;
+	nickname: string;
+	password: string;
+	passwordConfirm: string;
+}
 
 const SignupTemplate = () => {
 	const {
 		register,
+		handleSubmit,
 		formState: { errors },
 	} = useForm({
-		mode: 'onChange',
 		resolver: yupResolver(RegisterSchema),
+		mode: 'onBlur',
 	});
+
 	const [disabled, setDisabled] = useState(false);
 	const handleClick = () => {
 		setDisabled(true);
 	};
-	const onSunmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const onSubmit: SubmitHandler<FormValues> = data => {
+		console.log(data);
+	};
+
+	const handleEmail = () => {
+		console.log();
 	};
 	return (
-		<Container height="800px" onSubmit={onSunmit}>
+		<Container height="800px" onSubmit={handleSubmit(onSubmit)}>
 			<Content>
 				<Wrapper>
 					<InputGroup>
@@ -35,6 +48,7 @@ const SignupTemplate = () => {
 							placeholder="아이디(이메일)"
 							{...register('email')}
 							error={errors.email?.message}
+							onClick={handleEmail}
 						/>
 						<Button
 							label="인증하기"
@@ -43,6 +57,7 @@ const SignupTemplate = () => {
 							border="none"
 							disable={disabled}
 							onClick={handleClick}
+							type="button"
 						/>
 					</InputGroup>
 				</Wrapper>
@@ -55,6 +70,7 @@ const SignupTemplate = () => {
 							variant="primary"
 							border="none"
 							disable={true}
+							type="button"
 						/>
 					</InputGroup>
 				</Wrapper>
@@ -71,6 +87,7 @@ const SignupTemplate = () => {
 							size="small"
 							variant="primary"
 							border="none"
+							type="button"
 						/>
 					</InputGroup>
 				</Wrapper>
@@ -98,7 +115,7 @@ const SignupTemplate = () => {
 						<span>
 							<a href="#">(필수) 개인 정보 처리 방침</a>에 동의합니다.
 						</span>
-						<CheckBox variant="primary" {...register('check')} />
+						<CheckBox variant="primary" />
 					</Checks>
 				</Wrapper>
 				<ButtonBox>
@@ -108,6 +125,7 @@ const SignupTemplate = () => {
 						border="none"
 						size="large"
 						disable={true}
+						type="submit"
 					/>
 				</ButtonBox>
 			</Content>
@@ -119,6 +137,7 @@ export default SignupTemplate;
 
 const Wrapper = styled.div`
 	padding: 20px 0;
+	height: 50px;
 `;
 
 const Checks = styled.div`

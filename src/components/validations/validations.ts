@@ -1,7 +1,10 @@
 import * as yup from 'yup';
 
 export const RegisterSchema = yup.object({
-	email: yup.string().email('올바른 이메일 형식이 아닙니다.'),
+	email: yup
+		.string()
+		.required('필수 입력 사항입니다.')
+		.email('올바른 이메일 형식이 아닙니다.'),
 	nickname: yup
 		.string()
 		.required('닉네임을 입력해주세요.')
@@ -28,5 +31,4 @@ export const RegisterSchema = yup.object({
 		.string()
 		.required('비밀번호를 확인해주세요.')
 		.oneOf([yup.ref('password')], '비밀번호가 다릅니다.'),
-	check: yup.bool(),
 });

@@ -1,10 +1,10 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
 import { StyledInput, StyledInputBox } from './style';
 import InfoIcon from '@mui/icons-material/Info';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-export interface InputProps {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	pass?: string;
 	error?: string;
 	width: string;
@@ -31,6 +31,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				setInputType('password');
 			}
 		};
+		console.log(error);
 		return (
 			<StyledInputBox width={width}>
 				{login && (
@@ -44,6 +45,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					width={width}
 					placeholder={placeholder}
 					type={inputType}
+					error={error}
 				/>
 				{time && <span className="icon">{time}</span>}
 				{icon && (
@@ -59,6 +61,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 	},
 );
 
-Input.displayName = 'Input'; // displayName 추가
+Input.displayName = 'Input';
 
 export default Input;
