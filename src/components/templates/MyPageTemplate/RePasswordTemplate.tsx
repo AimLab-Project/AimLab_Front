@@ -4,7 +4,7 @@ import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Content, Wrapper } from '../AuthPageTemplate/LoginTemplate';
-import { ButtonBox } from '../AuthPageTemplate/SingupTemplate';
+import { ButtonBox } from '../AuthPageTemplate/SignupTemplate';
 
 const RePasswordTemplate = () => {
 	const data = {
