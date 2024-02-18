@@ -1,6 +1,10 @@
 import * as yup from 'yup';
 
-export const RegisterSchema = yup.object({
+export const RegisterSchema = yup.object().shape({
+	// email: yup.string().email().required(),
+	// nickname: yup.string().min(4).max(12),
+	// password: yup.string().min(8),
+	// passwordConfirm: yup.string().oneOf([yup.ref('password')]),
 	email: yup
 		.string()
 		.required('필수 입력 사항입니다.')
@@ -21,8 +25,8 @@ export const RegisterSchema = yup.object({
 		),
 	password: yup
 		.string()
-		.required('비밀번호를 입력해주세요.')
-		.min(12, '비밀번호는 최소 12자 이상이어야 합니다.')
+
+		.min(12, '비밀번호는 최소 8자 이상이어야 합니다.')
 		.matches(
 			/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]+$/,
 			'비밀번호는 영문, 숫자, 특수문자를 모두 포함하여야 합니다.',
@@ -32,3 +36,10 @@ export const RegisterSchema = yup.object({
 		.required('비밀번호를 확인해주세요.')
 		.oneOf([yup.ref('password')], '비밀번호가 다릅니다.'),
 });
+
+export interface FormValues extends yup.InferType<typeof RegisterSchema> {
+	email: string;
+	nickname: string;
+	password: string;
+	passwordConfirm: string;
+}

@@ -3,19 +3,12 @@ import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
 import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import React, { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import { Container, Content } from './LoginTemplate';
 import { RegisterSchema } from 'components/validations/validations';
-
-interface FormValues {
-	email: string;
-	nickname: string;
-	password: string;
-	passwordConfirm: string;
-}
 
 const SignupTemplate = () => {
 	const {
@@ -24,20 +17,18 @@ const SignupTemplate = () => {
 		formState: { errors },
 	} = useForm({
 		resolver: yupResolver(RegisterSchema),
-		mode: 'onBlur',
+		mode: 'onChange',
 	});
 
 	const [disabled, setDisabled] = useState(false);
 	const handleClick = () => {
 		setDisabled(true);
 	};
-	const onSubmit: SubmitHandler<FormValues> = data => {
+
+	const onSubmit = (data: any) => {
 		console.log(data);
 	};
 
-	const handleEmail = () => {
-		console.log();
-	};
 	return (
 		<Container height="800px" onSubmit={handleSubmit(onSubmit)}>
 			<Content>
@@ -48,7 +39,6 @@ const SignupTemplate = () => {
 							placeholder="아이디(이메일)"
 							{...register('email')}
 							error={errors.email?.message}
-							onClick={handleEmail}
 						/>
 						<Button
 							label="인증하기"
