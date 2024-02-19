@@ -51,11 +51,7 @@ export const Disabled = {
 	args: {
 		children: (
 			<>
-				<Input
-					placeholder={'아이디(이메일)'}
-					width={'315px'}
-					pass={'사용 가능한 이메일 입니다.'}
-				/>
+				<Input placeholder={'아이디(이메일)'} width={'315px'} />
 				<Button
 					label={'인증하기'}
 					size={'small'}
@@ -72,12 +68,7 @@ export const Verification = {
 	args: {
 		children: (
 			<>
-				<Input
-					placeholder={'인증번호'}
-					width={'315px'}
-					pass={'인증번호가 확인되었습니다.'}
-					time={'3:00'}
-				/>
+				<Input placeholder={'인증번호'} width={'315px'} time={'3:00'} />
 				<Button
 					label={'인증번호 확인'}
 					size={'small'}

@@ -5,7 +5,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-	pass?: string;
 	error?: string;
 	width: string;
 	time?: string;
@@ -17,7 +16,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
 	(
-		{ pass, error, time, login, icon, placeholder, width, type }: InputProps,
+		{ error, time, login, icon, placeholder, width, type, ...rest }: InputProps,
 		ref,
 	) => {
 		const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +30,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				setInputType('password');
 			}
 		};
-		console.log(error);
+
 		return (
 			<StyledInputBox width={width}>
 				{login && (
@@ -41,6 +40,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					</span>
 				)}
 				<StyledInput
+					{...rest}
 					ref={ref}
 					width={width}
 					placeholder={placeholder}
@@ -55,7 +55,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					</span>
 				)}
 				{error && <span className="error">{error}</span>}
-				{pass && <span className="pass">{pass}</span>}
 			</StyledInputBox>
 		);
 	},

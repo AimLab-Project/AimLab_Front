@@ -1,10 +1,6 @@
 import * as yup from 'yup';
 
 export const RegisterSchema = yup.object().shape({
-	// email: yup.string().email().required(),
-	// nickname: yup.string().min(4).max(12),
-	// password: yup.string().min(8),
-	// passwordConfirm: yup.string().oneOf([yup.ref('password')]),
 	email: yup
 		.string()
 		.required('필수 입력 사항입니다.')
@@ -26,7 +22,7 @@ export const RegisterSchema = yup.object().shape({
 	password: yup
 		.string()
 
-		.min(12, '비밀번호는 최소 8자 이상이어야 합니다.')
+		.min(8, '비밀번호는 최소 8자 이상이어야 합니다.')
 		.matches(
 			/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]+$/,
 			'비밀번호는 영문, 숫자, 특수문자를 모두 포함하여야 합니다.',
