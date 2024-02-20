@@ -4,7 +4,8 @@ export const RegisterSchema = yup.object().shape({
 	email: yup
 		.string()
 		.required('필수 입력 사항입니다.')
-		.email('올바른 이메일 형식이 아닙니다.'),
+		.email('올바른 이메일 형식이 아닙니다.')
+		.matches(/\S+@\S+\.\S+/, '이메일 형식으로 입력해주세요'),
 	nickname: yup
 		.string()
 		.required('닉네임을 입력해주세요.')
