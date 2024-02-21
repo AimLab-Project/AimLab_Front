@@ -1,18 +1,37 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from 'components/ui/atoms/Button/Button';
 import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
+import { LoginSchema } from 'components/validations/validations';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 
 const LoginTemplate = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(LoginSchema),
+		mode: 'onChange',
+	});
+
+	const onSubmit = (data: any) => {
+		console.log(data);
+	};
 	return (
-		<Container height="650px">
+		<Container height="650px" onSubmit={handleSubmit(onSubmit)}>
 			<Content>
 				<Wrapper>
 					<InputTitle>E-MAIL</InputTitle>
-
-					<Input width="100%" placeholder="이메일" />
+					<Input
+						width="100%"
+						placeholder="이메일"
+						{...register('email')}
+						login={errors.email?.message || errors.password?.message}
+					/>
 				</Wrapper>
 				<Wrapper>
 					<InputTitle>PASSWORD</InputTitle>
@@ -21,6 +40,7 @@ const LoginTemplate = () => {
 						placeholder="비밀번호(8자리 이상 문자, 숫자, 특수문자 사용)"
 						type="password"
 						icon={true}
+						{...register('password')}
 					/>
 				</Wrapper>
 				<Wrapper>
@@ -53,6 +73,7 @@ const LoginTemplate = () => {
 						<Line />
 					</ETC>
 				</Wrapper>
+				{/* 간편 로그인 */}
 			</Content>
 		</Container>
 	);
@@ -81,7 +102,7 @@ export const Container = styled.form<{ height?: string }>`
 	justify-content: flex-start;
 	color: ${theme.PALETTE.fwhite};
 	font-size: ${theme.FONT_SIZE.small};
-	padding-top: 100px;
+	padding-top: 40px;
 `;
 
 export const Content = styled.div`
@@ -91,7 +112,7 @@ export const Content = styled.div`
 
 export const Wrapper = styled.div`
 	padding: 15px 0;
-	height: 50px;
+	/* height: 50px; */
 `;
 
 const InputTitle = styled.div`

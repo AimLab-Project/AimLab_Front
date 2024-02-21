@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
+import { InputProps } from './Input';
 
 export const StyledInputBox = styled.div<{ width: string }>`
 	display: flex;
@@ -39,7 +40,7 @@ export const StyledInputBox = styled.div<{ width: string }>`
 	}
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<InputProps>`
 	padding: 0 16px;
 	height: 45px;
 	line-height: 45px;

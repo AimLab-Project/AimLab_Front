@@ -3,24 +3,43 @@ import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
 import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import { Container, Content } from './LoginTemplate';
+import { RegisterSchema } from 'components/validations/validations';
 
-const SingupTemplate = () => {
+const SignupTemplate = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(RegisterSchema),
+		mode: 'onChange',
+	});
+
 	const [disabled, setDisabled] = useState(false);
 	const handleClick = () => {
 		setDisabled(true);
 	};
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+
+	const onSubmit = (data: any) => {
+		console.log(data);
 	};
+
 	return (
-		<Container height="800px" onSubmit={handleSubmit}>
+		<Container height="800px" onSubmit={handleSubmit(onSubmit)}>
 			<Content>
 				<Wrapper>
 					<InputGroup>
-						<Input width="315px" placeholder="아이디(이메일)" />
+						<Input
+							width="315px"
+							placeholder="아이디(이메일)"
+							{...register('email')}
+							error={errors.email?.message}
+						/>
 						<Button
 							label="인증하기"
 							size="small"
@@ -28,6 +47,7 @@ const SingupTemplate = () => {
 							border="none"
 							disable={disabled}
 							onClick={handleClick}
+							type="button"
 						/>
 					</InputGroup>
 				</Wrapper>
@@ -39,17 +59,25 @@ const SingupTemplate = () => {
 							size="small"
 							variant="primary"
 							border="none"
+							disable={true}
+							type="button"
 						/>
 					</InputGroup>
 				</Wrapper>
 				<Wrapper>
 					<InputGroup>
-						<Input width="315px" placeholder="닉네임" />
+						<Input
+							width="315px"
+							placeholder="닉네임"
+							{...register('nickname')}
+							error={errors.nickname?.message}
+						/>
 						<Button
 							label="닉네임 확인"
 							size="small"
 							variant="primary"
 							border="none"
+							type="button"
 						/>
 					</InputGroup>
 				</Wrapper>
@@ -58,10 +86,19 @@ const SingupTemplate = () => {
 						width="100%"
 						placeholder="비밀번호(8자리 이상 문자, 숫자, 특수문자 사용)"
 						icon={true}
+						type="password"
+						{...register('password')}
+						error={errors.password?.message}
 					/>
 				</Wrapper>
 				<Wrapper>
-					<Input width="100%" placeholder="비밀번호 확인" />
+					<Input
+						width="100%"
+						placeholder="비밀번호 확인"
+						type="password"
+						{...register('passwordConfirm')}
+						error={errors.passwordConfirm?.message}
+					/>
 				</Wrapper>
 				<Wrapper>
 					<Checks>
@@ -77,6 +114,8 @@ const SingupTemplate = () => {
 						variant="primary"
 						border="none"
 						size="large"
+						disable={true}
+						type="submit"
 					/>
 				</ButtonBox>
 			</Content>
@@ -84,10 +123,11 @@ const SingupTemplate = () => {
 	);
 };
 
-export default SingupTemplate;
+export default SignupTemplate;
 
 const Wrapper = styled.div`
 	padding: 20px 0;
+	height: 50px;
 `;
 
 const Checks = styled.div`
