@@ -47,3 +47,17 @@ export const LoginSchema = yup.object().shape({
 		.email('올바른 이메일 형식이 아닙니다.'),
 	password: yup.string().required('비밀번호를 입력해주세요.'),
 });
+
+export const PasswordReset = yup.object().shape({
+	password: yup
+		.string()
+		.min(8, '비밀번호는 최소 8자 이상이어야 합니다.')
+		.matches(
+			/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]+$/,
+			'비밀번호는 영문, 숫자, 특수문자를 모두 포함하여야 합니다.',
+		),
+	passwordConfirm: yup
+		.string()
+		.required('비밀번호를 확인해주세요.')
+		.oneOf([yup.ref('password')], '비밀번호가 다릅니다.'),
+});
