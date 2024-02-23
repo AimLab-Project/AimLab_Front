@@ -2,6 +2,7 @@ import MainHeader from 'components/ui/organisms/MainHeader/MainHeader';
 import React from 'react';
 import styled from 'styled-components';
 import BG from '../assets/image/BG/AimSharp_BG.png';
+import Logo from '../assets/image/Logo/main_logo.png';
 
 const MainPage = () => {
 	return (
@@ -9,7 +10,7 @@ const MainPage = () => {
 			<MainHeader />
 			<Content>
 				<Wrapper>
-					<Title>aim sharp</Title>
+					<Image src={Logo} alt="logo" />
 					<SubTitle>더 나은 게임 플레이를 위해</SubTitle>
 				</Wrapper>
 			</Content>
@@ -43,14 +44,20 @@ const Wrapper = styled.div`
 	justify-content: space-between;
 `;
 
-const Title = styled.span`
-	font-family: 'Old Standard TT';
-	font-weight: 700;
-	font-size: 80px;
-	text-transform: uppercase;
-	text-shadow: 0px 12px 4px rgba(81, 81, 81, 0.8), -1px 0px #fff, 0px 1px #fff,
-		1px 0px #fff, 0px -1px #fff;
+const Image = styled.img`
+	width: 500px;
+	height: 65px;
+	cursor: pointer;
 `;
+
+// const Title = styled.span`
+// 	font-family: 'Old Standard TT';
+// 	font-weight: 700;
+// 	font-size: 80px;
+// 	text-transform: uppercase;
+// 	text-shadow: 0px 12px 4px rgba(81, 81, 81, 0.8), -1px 0px #fff, 0px 1px #fff,
+// 		1px 0px #fff, 0px -1px #fff;
+// `;
 
 const SubTitle = styled.span`
 	color: rgba(255, 255, 255, 0.8);

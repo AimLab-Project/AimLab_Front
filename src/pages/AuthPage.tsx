@@ -1,4 +1,4 @@
-import RePasswordTemplate from 'components/templates/MyPageTemplate/RePasswordTemplate';
+import SignupTemplate from 'components/templates/AuthPageTemplate/SignupTemplate';
 import React from 'react';
 import styled from 'styled-components';
 import BG from '../assets/image/BG/auth_BG.png';
@@ -7,9 +7,9 @@ const AuthPage = () => {
 	return (
 		<Container>
 			<Title>aim sharp</Title>
-			{/* <SignupTemplate /> */}
+			<SignupTemplate />
 			{/* <LoginTemplate /> */}
-			<RePasswordTemplate />
+			{/* <RePasswordTemplate /> */}
 		</Container>
 	);
 };

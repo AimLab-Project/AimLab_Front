@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import theme from 'styles/theme';
 import { Container, Content } from './LoginTemplate';
 import { RegisterSchema } from 'components/validations/validations';
+import { Link } from 'react-router-dom';
 
 const SignupTemplate = () => {
 	const {
@@ -103,7 +104,7 @@ const SignupTemplate = () => {
 				<Wrapper>
 					<Checks>
 						<span>
-							<a href="#">(필수) 개인 정보 처리 방침</a>에 동의합니다.
+							<Link to="#">(필수) 개인 정보 처리 방침</Link>에 동의합니다.
 						</span>
 						<CheckBox variant="primary" />
 					</Checks>

@@ -5,6 +5,7 @@ import Input from 'components/ui/atoms/Input/Input';
 import { LoginSchema } from 'components/validations/validations';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 
@@ -63,7 +64,7 @@ const LoginTemplate = () => {
 				</Wrapper>
 				<Wrapper>
 					<AuthLink>
-						<a href="#">비밀번호 찾기</a>|<a href="#">회원가입</a>
+						<Link to="#">비밀번호 찾기</Link>|<Link to="#">회원가입</Link>
 					</AuthLink>
 				</Wrapper>
 				<Wrapper>
