@@ -1,8 +1,8 @@
 import MainHeader from 'components/ui/organisms/MainHeader/MainHeader';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import BG from '../assets/image/BG/AimSharp_BG.png';
-import Logo from '../assets/image/Logo/main_logo.png';
 
 const MainPage = () => {
 	return (
@@ -10,7 +10,9 @@ const MainPage = () => {
 			<MainHeader />
 			<Content>
 				<Wrapper>
-					<Image src={Logo} alt="logo" />
+					<Title>
+						<Link to={'#'}>aim sharp</Link>
+					</Title>
 					<SubTitle>더 나은 게임 플레이를 위해</SubTitle>
 				</Wrapper>
 			</Content>
@@ -25,6 +27,8 @@ const Container = styled.div`
 	width: 100%;
 	height: 100vh;
 	background-image: url(${BG});
+	display: flex;
+	justify-content: center;
 `;
 
 const Content = styled.div`
@@ -44,23 +48,24 @@ const Wrapper = styled.div`
 	justify-content: space-between;
 `;
 
-const Image = styled.img`
-	width: 500px;
-	height: 65px;
-	cursor: pointer;
+const Title = styled.span`
+	font-family: 'Old Standard TT';
+	font-weight: 700;
+	font-size: 80px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	text-shadow: 0px 12px 4px rgba(81, 81, 81, 0.8), -1px 0px #fff, 0px 1px #fff,
+		1px 0px #fff, 0px -1px #fff;
+	a {
+		cursor: pointer;
+		color: #000;
+		text-decoration: none;
+	}
 `;
-
-// const Title = styled.span`
-// 	font-family: 'Old Standard TT';
-// 	font-weight: 700;
-// 	font-size: 80px;
-// 	text-transform: uppercase;
-// 	text-shadow: 0px 12px 4px rgba(81, 81, 81, 0.8), -1px 0px #fff, 0px 1px #fff,
-// 		1px 0px #fff, 0px -1px #fff;
-// `;
 
 const SubTitle = styled.span`
 	color: rgba(255, 255, 255, 0.8);
 	font-weight: 400;
 	font-size: 35px;
+	white-space: nowrap;
 `;
