@@ -7,6 +7,8 @@ import theme from 'styles/theme';
 import CrisisAlertIcon from '@mui/icons-material/CrisisAlert';
 import FolderIcon from '@mui/icons-material/Folder';
 import Discord from '../../../../assets/image/Logo/discord.png';
+import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
+import Profile from '../../../../assets/image/user/default_profile.png';
 
 const MainHeader: React.FC = () => {
 	return (
@@ -35,6 +37,9 @@ const MainHeader: React.FC = () => {
 				<Wrapper>
 					<Image src={Discord} />
 				</Wrapper>
+				<User>
+					<img src={Profile} />
+				</User>
 			</Content>
 		</Container>
 	);
@@ -88,4 +93,12 @@ const Span = styled.span`
 const Image = styled.img`
 	width: 30px;
 	height: 30px;
+`;
+
+const User = styled.div`
+	position: absolute;
+	right: 0;
+	width: 395px;
+	height: 100%;
+	background-image: url(${ProfileBg});
 `;
