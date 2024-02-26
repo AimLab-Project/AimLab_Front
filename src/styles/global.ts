@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import reset from 'styled-reset'
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -15,10 +15,12 @@ const GlobalStyles = createGlobalStyle`
 
   ul > li {
     list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   a {
     text-decoration: none;
   }
-`
-export default GlobalStyles
+`;
+export default GlobalStyles;
