@@ -7,8 +7,7 @@ import theme from 'styles/theme';
 import CrisisAlertIcon from '@mui/icons-material/CrisisAlert';
 import FolderIcon from '@mui/icons-material/Folder';
 import Discord from '../../../../assets/image/Logo/discord.png';
-import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
-import Profile from '../../../../assets/image/user/default_profile.png';
+import HeaderUser from 'components/ui/molecules/HeaderUser/HeaderUser';
 
 const MainHeader: React.FC = () => {
 	return (
@@ -27,6 +26,25 @@ const MainHeader: React.FC = () => {
 						sx={{ color: '#fff', width: '30px', height: '30px' }}
 					/>
 					<Span>게임</Span>
+					<ul
+						style={{
+							listStyle: 'none',
+							color: 'white',
+							display: 'flex',
+							width: '300px',
+							height: '50px',
+							background: '#000',
+							borderRadius: '40px',
+							padding: '0 20px ',
+							alignItems: 'center',
+							fontSize: '20px',
+							justifyContent: 'space-between',
+						}}
+					>
+						<li>사격게임</li>
+						<li>에임 봇 게임</li>
+						<li>에임 커스텀</li>
+					</ul>
 				</Wrapper>
 
 				<Wrapper>
@@ -37,9 +55,7 @@ const MainHeader: React.FC = () => {
 				<Wrapper>
 					<Image src={Discord} />
 				</Wrapper>
-				<User>
-					<img src={Profile} />
-				</User>
+				<HeaderUser />
 			</Content>
 		</Container>
 	);
@@ -93,12 +109,4 @@ const Span = styled.span`
 const Image = styled.img`
 	width: 30px;
 	height: 30px;
-`;
-
-const User = styled.div`
-	position: absolute;
-	right: 0;
-	width: 395px;
-	height: 100%;
-	background-image: url(${ProfileBg});
 `;
