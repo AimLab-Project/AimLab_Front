@@ -26,25 +26,11 @@ const MainHeader: React.FC = () => {
 						sx={{ color: '#fff', width: '30px', height: '30px' }}
 					/>
 					<Span>게임</Span>
-					<ul
-						style={{
-							listStyle: 'none',
-							color: 'white',
-							display: 'flex',
-							width: '300px',
-							height: '50px',
-							background: '#000',
-							borderRadius: '40px',
-							padding: '0 20px ',
-							alignItems: 'center',
-							fontSize: '20px',
-							justifyContent: 'space-between',
-						}}
-					>
+					<Dropdown>
 						<li>사격게임</li>
 						<li>에임 봇 게임</li>
 						<li>에임 커스텀</li>
-					</ul>
+					</Dropdown>
 				</Wrapper>
 
 				<Wrapper>
@@ -89,9 +75,13 @@ const Wrapper = styled.div`
 	gap: 8px;
 	cursor: pointer;
 	&:hover {
-		background-color: rgba(252, 252, 252, 0.4);
+		background-color: ${theme.PALETTE.primary[200]};
 		border-radius: 40px;
 	}
+	&:hover ${() => Dropdown} {
+		display: flex;
+	}
+	transition: all 0.3s ease-in-out;
 `;
 
 const SLogo = styled.img`
@@ -100,13 +90,34 @@ const SLogo = styled.img`
 	cursor: pointer;
 `;
 
-const Span = styled.span`
+const Span = styled.ul`
 	font-size: 30px;
 	color: ${theme.PALETTE.fwhite};
 	white-space: nowrap;
+	padding: 0;
 `;
 
 const Image = styled.img`
 	width: 30px;
 	height: 30px;
+`;
+
+const Dropdown = styled.ul`
+	list-style: none;
+	color: ${theme.PALETTE.fwhite};
+	display: none;
+	width: 300px;
+	height: 50px;
+	background: #000;
+	border-radius: 40px;
+	padding: 0 20px;
+	align-items: center;
+	font-size: 20px;
+	justify-content: space-between;
+
+	li {
+		&:hover {
+			color: ${theme.PALETTE.primary[200]};
+		}
+	}
 `;
