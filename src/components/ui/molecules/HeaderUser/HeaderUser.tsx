@@ -4,15 +4,17 @@ import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
 import Profile from '../../../../assets/image/user/default_profile.png';
 import theme from 'styles/theme';
 import { Link } from 'react-router-dom';
+import useRouter from 'hooks/useRouter';
 
 // import { Link } from 'react-router-dom';
 
 const HeaderUser = () => {
+	const { moveMyPage } = useRouter();
 	return (
 		// 로그인을 했을 경우
 		<User>
 			<Propfile>
-				<Link to="#">
+				<Link to="#" onClick={moveMyPage}>
 					<Span>nickname</Span>
 					<img src={Profile} />
 				</Link>
