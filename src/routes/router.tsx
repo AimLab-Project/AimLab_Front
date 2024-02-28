@@ -4,6 +4,7 @@ import MainPage from 'pages/MainPage';
 import NotFoundPage from 'pages/NotFoundPage';
 import { createBrowserRouter } from 'react-router-dom';
 import React from 'react';
+import OAuth2RedirectHandler from 'api/oauth_handler';
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
 	{
 		path: '/*',
 		element: <NotFoundPage />,
+	},
+	{
+		path: '/oauth/redirect',
+		element: <OAuth2RedirectHandler />,
 	},
 ]);
 
