@@ -1,6 +1,6 @@
 import { LocalStorage } from 'common/LocalStorage';
 import { ACCESS_TOKEN, API_BASE_URL } from '../constants';
-import { LoginRequest, ResponseLogin, SignUpRequest } from './protocol';
+import { LoginRequest, ResponseLogin, SignUpRequest } from './Protocol';
 
 /**
  * TODO : 공용 API 로 뺌
@@ -19,10 +19,10 @@ const request = (options: any) => {
 
 	return fetch(options.url, options).then(response =>
 		response.json().then(json => {
-			if (!response.ok) {
+			if (!response.ok || json.status !== 'success') {
 				return Promise.reject(json);
 			}
-			return json;
+			return json.data;
 		}),
 	);
 };
@@ -62,11 +62,19 @@ export function requestEmailVerification(email: string) {
 	});
 }
 
-export function confirmEmailVerification(email: string, code: string) {
+export function confirmEmailVerification(
+	email: string,
+	code: string,
+	key: string,
+) {
 	return request({
 		url: API_BASE_URL + '/email/verification/confirm',
 		method: 'POST',
-		body: JSON.stringify({ user_email: email, verification_code: code }),
+		body: JSON.stringify({
+			user_email: email,
+			verification_code: code,
+			key,
+		}),
 	});
 }
 

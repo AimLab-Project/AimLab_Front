@@ -45,5 +45,5 @@ export type SignUpRequest = {
 	user_email: string;
 	user_password: string;
 	user_nickname: string;
-	email_certification: number;
+	key: string;
 };
