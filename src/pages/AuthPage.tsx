@@ -2,15 +2,16 @@ import SignupTemplate from 'components/templates/AuthPageTemplate/SignupTemplate
 import React from 'react';
 import styled from 'styled-components';
 import BG from '../assets/image/BG/auth_BG.png';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import LoginTemplate from 'components/templates/AuthPageTemplate/LoginTemplate';
 import RePasswordTemplate from 'components/templates/MyPageTemplate/RePasswordTemplate';
 
 const AuthPage = () => {
 	const { page } = useParams();
+	const navigate = useNavigate();
 	return (
 		<Container>
-			<Title>aim sharp</Title>
+			<Title onClick={() => navigate('/')}>aim sharp</Title>
 			{page === 'signup' && <SignupTemplate />}
 			{page === 'login' && <LoginTemplate />}
 			{page === 'repassword' && <RePasswordTemplate />}

@@ -1,15 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { login } from 'api/user_api';
 import Button from 'components/ui/atoms/Button/Button';
 import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
 import { LoginSchema } from 'components/validations/validations';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 
 const LoginTemplate = () => {
+	const navigate = useNavigate();
+
 	const {
 		register,
 		handleSubmit,
@@ -19,8 +22,17 @@ const LoginTemplate = () => {
 		mode: 'onChange',
 	});
 
-	const onSubmit = (data: any) => {
+	const onSubmit = async (data: any) => {
 		console.log(data);
+		try {
+			await login({
+				user_email: data.email,
+				user_password: data.password,
+			});
+			navigate('/');
+		} catch (err) {
+			console.log(err);
+		}
 	};
 	return (
 		<Container height="650px" onSubmit={handleSubmit(onSubmit)}>
@@ -64,7 +76,8 @@ const LoginTemplate = () => {
 				</Wrapper>
 				<Wrapper>
 					<AuthLink>
-						<Link to="#">비밀번호 찾기</Link>|<Link to="#">회원가입</Link>
+						<Link to="/auth/repassword">비밀번호 찾기</Link>|
+						<Link to="/auth/signup">회원가입</Link>
 					</AuthLink>
 				</Wrapper>
 				<Wrapper>
