@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
-import Profile from '../../../../assets/image/user/default_profile.png';
+
 import theme from 'styles/theme';
 import { Link } from 'react-router-dom';
 import useRouter from 'hooks/useRouter';
+import Profile from 'components/ui/atoms/Profile/Profile';
 
 // import { Link } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ const HeaderUser = () => {
 			<Propfile>
 				<Link to="#" onClick={moveMyPage}>
 					<Span>nickname</Span>
-					<img src={Profile} />
+					<Profile />
 				</Link>
 			</Propfile>
 

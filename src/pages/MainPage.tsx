@@ -1,3 +1,4 @@
+import UpdateBox from 'components/ui/atoms/UpdateBox/UpdateBox';
 import MainHeader from 'components/ui/organisms/MainHeader/MainHeader';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -6,17 +7,20 @@ import BG from '../assets/image/BG/AimSharp_BG.png';
 
 const MainPage = () => {
 	return (
-		<Container>
-			<MainHeader />
-			<Content>
-				<Wrapper>
-					<Title>
-						<Link to={'#'}>aim sharp</Link>
-					</Title>
-					<SubTitle>더 나은 게임 플레이를 위해</SubTitle>
-				</Wrapper>
-			</Content>
-		</Container>
+		<>
+			<Container>
+				<MainHeader />
+				<Content>
+					<Wrapper>
+						<Title>
+							<Link to={'#'}>aim sharp</Link>
+						</Title>
+						<SubTitle>더 나은 게임 플레이를 위해</SubTitle>
+					</Wrapper>
+				</Content>
+				<UpdateBox />
+			</Container>
+		</>
 	);
 };
 
