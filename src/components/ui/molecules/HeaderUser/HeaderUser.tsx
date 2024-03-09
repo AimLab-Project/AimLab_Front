@@ -54,6 +54,7 @@ const Propfile = styled.div`
 		display: flex;
 		align-items: center;
 		gap: 20px;
+		color: ${theme.PALETTE.fblack};
 	}
 `;
 

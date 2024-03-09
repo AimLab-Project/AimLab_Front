@@ -1,3 +1,4 @@
+import MainMyDataTemplate from 'components/templates/MainMyDataTemplate/MainMyDataTemplate';
 import UpdateBox from 'components/ui/atoms/UpdateBox/UpdateBox';
 import MainHeader from 'components/ui/organisms/MainHeader/MainHeader';
 import React from 'react';
@@ -8,23 +9,34 @@ import BG from '../assets/image/BG/AimSharp_BG.png';
 const MainPage = () => {
 	return (
 		<>
-			<Container>
-				<MainHeader />
-				<Content>
-					<Wrapper>
-						<Title>
-							<Link to={'#'}>aim sharp</Link>
-						</Title>
-						<SubTitle>더 나은 게임 플레이를 위해</SubTitle>
-					</Wrapper>
-				</Content>
-				<UpdateBox />
-			</Container>
+			<Main>
+				<Container>
+					<MainHeader />
+					<Content>
+						<Wrapper>
+							<Title>
+								<Link to={'#'}>aim sharp</Link>
+							</Title>
+							<SubTitle>더 나은 게임 플레이를 위해</SubTitle>
+						</Wrapper>
+					</Content>
+					<UpdateBox />
+				</Container>
+				<MainMyDataTemplate />
+			</Main>
 		</>
 	);
 };
 
 export default MainPage;
+
+const Main = styled.div`
+	width: 100%;
+	background-color: #000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
 
 const Container = styled.div`
 	position: relative;
