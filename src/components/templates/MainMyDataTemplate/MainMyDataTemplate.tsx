@@ -1,3 +1,4 @@
+import Profile from 'components/ui/atoms/Profile/Profile';
 import React from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
@@ -8,7 +9,9 @@ const MainMyDataTemplate = () => {
 		<Container>
 			<div>
 				<div>
-					<div>{/* profile */}</div>
+					<div>
+						<Profile width="200px" height="200px" add />
+					</div>
 					<div>{/* tier */}</div>
 					<div>{/* progress */}</div>
 				</div>

@@ -17,7 +17,7 @@ const HeaderUser = () => {
 			<Propfile>
 				<Link to="#" onClick={moveMyPage}>
 					<Span>nickname</Span>
-					<Profile />
+					<Profile width="65px" height="65px" />
 				</Link>
 			</Propfile>
 
