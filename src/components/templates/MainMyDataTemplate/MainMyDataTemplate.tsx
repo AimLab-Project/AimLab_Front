@@ -1,4 +1,5 @@
 import Profile from 'components/ui/atoms/Profile/Profile';
+import Tier from 'components/ui/atoms/Tier/Tier';
 import React from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
@@ -8,11 +9,13 @@ const MainMyDataTemplate = () => {
 	return (
 		<Container>
 			<div>
-				<div>
+				<div style={{ display: 'flex' }}>
 					<div>
 						<Profile width="200px" height="200px" add />
 					</div>
-					<div>{/* tier */}</div>
+					<div>
+						<Tier />
+					</div>
 					<div>{/* progress */}</div>
 				</div>
 				<div>
