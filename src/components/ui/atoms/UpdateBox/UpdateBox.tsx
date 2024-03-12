@@ -21,7 +21,8 @@ const Container = styled.div`
 	height: 70px;
 	background: rgba(120, 233, 191, 0.5);
 	bottom: 30px;
-	border: 5px solid rgba(120, 233, 191, 1);
+	border-top: 5px solid rgba(120, 233, 191, 1);
+	border-bottom: 5px solid rgba(120, 233, 191, 1);
 `;
 
 const UpdateText = styled.span`
@@ -31,5 +32,4 @@ const UpdateText = styled.span`
 	align-items: center;
 	color: #fff;
 	font-size: 25px;
-	padding: 0 10px;
 `;
