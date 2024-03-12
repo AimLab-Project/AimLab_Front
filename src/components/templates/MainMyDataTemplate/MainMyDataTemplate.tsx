@@ -9,14 +9,25 @@ const MainMyDataTemplate = () => {
 	return (
 		<Container>
 			<div>
-				<div style={{ display: 'flex' }}>
+				<div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-around',
+					}}
+				>
 					<div>
 						<Profile width="200px" height="200px" add />
 					</div>
 					<div>
 						<Tier />
 					</div>
-					<div>{/* progress */}</div>
+					<div>
+						{/* progress */}
+						<div
+							style={{ width: '1000px', height: '250px', background: 'orange' }}
+						></div>
+					</div>
 				</div>
 				<div>
 					{/* cal-heatmap */}
