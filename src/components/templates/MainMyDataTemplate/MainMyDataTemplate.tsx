@@ -1,8 +1,10 @@
+import Button from 'components/ui/atoms/Button/Button';
 import Profile from 'components/ui/atoms/Profile/Profile';
 import Tier from 'components/ui/atoms/Tier/Tier';
 import CalHeatMap from 'components/ui/organisms/CalHeatMap/CalHeatMap';
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import BG from '../../../assets/image/BG/main_BG.png';
@@ -31,9 +33,32 @@ const MainMyDataTemplate = () => {
 						></div>
 					</div>
 				</div>
-				<div>
+				<div
+					style={{
+						width: '100%',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
 					<CalHeatMap />
-					{/* button */}
+				</div>
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'flex-end',
+						margin: '20px',
+						marginRight: '80px',
+					}}
+				>
+					<Link to={'#'}>
+						<Button
+							label="마이페이지 이동"
+							size="medium"
+							variant="primary"
+							border="primary"
+						/>
+					</Link>
 				</div>
 			</div>
 		</Container>

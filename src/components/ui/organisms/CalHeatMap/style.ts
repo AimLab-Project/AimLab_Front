@@ -5,17 +5,23 @@ export const TimeLine = styled.div`
 `;
 
 export const Cells = styled.div`
+	/* width: 500px; */
+	/* overflow: hidden; */
+	/* scroll */
 	display: inline-flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	height: ${(10 + 4) * 8}px;
+	height: 120px;
+	margin: 15px 0;
 `;
 
 export const Celly = styled.div`
-	height: 10px;
-	width: 10px;
+	height: 12px;
+	width: 12px;
 	border: 1px solid rgba(0, 0, 0, 0.1);
-	margin: 2px;
+	/* margin: 2px;
+   */
+	margin: 5px;
 	border-radius: 2px;
 	background-color: rgba(0, 0, 0, 0.05);
 	/* background-color: rgba(0, 0, 0, 0.05); */
@@ -56,7 +62,7 @@ export const Monthy = styled.div`
 	margin: 2px;
 	border: 1px solid transparent;
 	font-size: 10px;
-
+	/* 
 	.Jan ~ &.Jan,
 	.Feb ~ &.Feb,
 	.Mar ~ &.Mar,
@@ -70,5 +76,5 @@ export const Monthy = styled.div`
 	.Nov ~ &.Nov,
 	.Dec ~ &.Dec {
 		visibility: hidden;
-	}
+	} */
 `;

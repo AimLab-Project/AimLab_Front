@@ -1,10 +1,9 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { Dayjs } from 'dayjs';
-import { Body, Cells, Months, TimeLine, Weeks } from './style';
+import { Body, Cells, TimeLine } from './style';
 import Cell from './Cell';
-import Week from './Week';
-import Month from './Month';
+// import Week from './Week';
 
 export interface CalHeatMapProps {
 	range: Dayjs[];
@@ -14,8 +13,8 @@ export interface CalHeatMapProps {
 const Timeline = ({ range, data }: CalHeatMapProps) => {
 	const days = Math.abs(range[0].diff(range[1], 'days'));
 	const cells = Array.from(new Array(days));
-	const weeks = Array.from(new Array(7));
-	const months = Array.from(new Array(Math.floor(days / 7)));
+	// const weeks = Array.from(new Array(7));
+	// const months = Array.from(new Array(Math.floor(days / 7)));
 
 	const min = Math.min(0, ...data.map(d => d.value));
 	const max = Math.max(...data.map(d => d.value));
@@ -27,17 +26,17 @@ const Timeline = ({ range, data }: CalHeatMapProps) => {
 
 	return (
 		<TimeLine className="timeline">
-			<Months className="timeline-months">
+			{/* <Months className="timeline-months">
 				{months.map((_, index) => (
 					<Month key={index} index={index} startDate={startDate} />
 				))}
-			</Months>
+			</Months> */}
 			<Body className="timeline-body">
-				<Weeks className="timeline-weeks">
+				{/* <Weeks className="timeline-weeks">
 					{weeks.map((_, index) => (
 						<Week key={index} index={index} />
 					))}
-				</Weeks>
+				</Weeks> */}
 				<Cells className="timeline-cells">
 					{cells.map((_, index) => {
 						const date = dayjs(startDate).add(index, 'days');
