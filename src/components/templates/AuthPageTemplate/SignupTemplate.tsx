@@ -1,4 +1,4 @@
-import React from 'react'; // Import the 'React' module
+import React, { useEffect } from 'react'; // Import the 'React' module
 
 import { yupResolver } from '@hookform/resolvers/yup';
 // import { requestEmailVerification } from 'api/user_api';
@@ -21,13 +21,16 @@ import {
 	signup,
 	// signup,
 } from 'api/user_api';
+import useTimer from 'hook/useTimer';
+import { secondsToMMSS } from 'hook/util';
 
 /**
  *
- * todo
- * - 에러 핸들링
- * - 이메일 인증 timer 기능 + time 조건 체크
- * - 조건 체크 후 noti
+ * TODO :
+ * onChange 이벤트 핸들러 추가 등록  - '사용 가능한 이메일 입니다' 표시 , disabled 상태 변경
+ * 상태 나누기 + 최적화
+ * onSubmit 필드 체크 추가
+ * input props 세분화
  */
 
 const SignupTemplate = () => {
@@ -36,52 +39,106 @@ const SignupTemplate = () => {
 		getValues,
 		handleSubmit,
 		formState: { errors },
+		setError,
+		trigger,
 	} = useForm({
 		resolver: yupResolver(RegisterSchema),
 		mode: 'onChange',
 	});
 
 	const navigate = useNavigate();
-
 	const [emailDisabled, setEmailDisabled] = useState(false);
+	const [emailSuccess, setEmailSuccess] = useState(false);
 	const [codeDisabled, setCodeDisabled] = useState(false);
+	const [codeSuccess, setCodeSuccess] = useState(false);
+	const [nicknameSuccess, setNicknameSuccess] = useState(false);
 	const [key, setKey] = useState('');
 
+	const { start, seconds, isRunning, stop } = useTimer(180);
+
+	// timer start
+	useEffect(() => {
+		if (emailDisabled) {
+			start();
+		}
+	}, [start]);
+
 	const handleEmailVerification = async () => {
-		const email = getValues('email');
+		stop();
+		const isValid = await trigger('email');
+		if (!isValid) {
+			return;
+		}
 		setEmailDisabled(true);
+		const email = getValues('email');
 		try {
 			const { exist } = await checkEmail(email);
 			if (exist) {
 				setEmailDisabled(false);
+				setError('email', {
+					type: 'exist',
+					message: '이미 사용중인 이메일 입니다.',
+				});
 				return;
 			}
 
 			const { key } = await requestEmailVerification(email);
+			start();
 			setKey(key);
+			setEmailSuccess(true);
+			setCodeDisabled(false);
+			setCodeSuccess(false);
 		} catch (err) {
 			setEmailDisabled(false);
 		}
 	};
 
 	const handleCodeVerification = async () => {
+		const isValid = await trigger('code');
+		if (!isValid) {
+			return;
+		}
+
+		if (!isRunning) {
+			setError('code', {
+				type: 'custom',
+				message: '인증 번호가 만료되었습니다. 다시 시도해주세요.',
+			});
+		}
+
 		const email = getValues('email');
 		const code = getValues('code') ?? 0;
 		try {
 			setCodeDisabled(true);
 			await confirmEmailVerification(email, code.toString(), key);
+			setCodeSuccess(true);
+			stop();
 		} catch (err) {
 			setCodeDisabled(false);
+			setCodeSuccess(false);
+			setError('code', {
+				type: 'custom',
+				message: '인증 번호가 알맞지 않습니다. 다시 입력해주세요.',
+			});
 		}
 	};
 
+	// 닉네임 중복 체크
 	const handleCheckNickname = async () => {
 		const nickname = getValues('nickname');
 		try {
 			const { exist } = await checkNickname(nickname);
-			console.log(exist ? '성공' : '실패');
+			if (exist) {
+				throw new Error(`${nickname} exist`);
+			}
+			setNicknameSuccess(true);
 		} catch (err) {
 			console.log(err);
+			setError('nickname', {
+				type: 'exist',
+				message: '중복된 닉네임 입니다.',
+			});
+			setNicknameSuccess(false);
 		}
 	};
 
@@ -122,14 +179,22 @@ const SignupTemplate = () => {
 							type="button"
 						/>
 					</InputGroup>
+					{emailSuccess && <SuccessText>인증 번호를 확인해주세요.</SuccessText>}
 				</Wrapper>
 				<Wrapper>
 					<InputGroup>
 						<Input
 							width="315px"
 							placeholder="인증번호"
-							time="3:00"
+							time={isRunning ? secondsToMMSS(seconds) : ''}
 							{...register('code')}
+							error={
+								errors.code?.type == 'custom'
+									? errors.code?.message
+									: errors.code?.message
+									? '숫자만 입력 해주세요.'
+									: ''
+							}
 						/>
 						<Button
 							label="인증번호 확인"
@@ -141,6 +206,9 @@ const SignupTemplate = () => {
 							type="button"
 						/>
 					</InputGroup>
+					{codeSuccess && (
+						<SuccessText>인증 번호가 확인 되었습니다.</SuccessText>
+					)}
 				</Wrapper>
 				<Wrapper>
 					<InputGroup>
@@ -159,6 +227,9 @@ const SignupTemplate = () => {
 							type="button"
 						/>
 					</InputGroup>
+					{nicknameSuccess && (
+						<SuccessText>사용 가능한 닉네임 입니다.</SuccessText>
+					)}
 				</Wrapper>
 				<Wrapper>
 					<Input
@@ -224,4 +295,10 @@ export const ButtonBox = styled.div`
 	justify-content: center;
 	align-items: center;
 	padding-top: 30px;
+`;
+
+const SuccessText = styled.p`
+	color: #009900;
+	font-size: ${theme.FONT_SIZE.small};
+	font-family: 'Roboto Mono';
 `;

@@ -1,6 +1,12 @@
 import { LocalStorage } from 'common/LocalStorage';
 import { ACCESS_TOKEN, API_BASE_URL } from '../constants';
-import { LoginRequest, ResponseLogin, SignUpRequest } from './Protocol';
+import {
+	LoginRequest,
+	ResponseLogin,
+	ResponseSocialLoginPage,
+	SignUpRequest,
+} from './Protocol';
+import { SocialLoginProvider } from 'components/ui/molecules/socialLoginButton/SocialLoginButton';
 
 /**
  * TODO : 공용 API 로 뺌
@@ -19,6 +25,7 @@ const request = (options: any) => {
 
 	return fetch(options.url, options).then(response =>
 		response.json().then(json => {
+			console.log(json);
 			if (!response.ok || json.status !== 'success') {
 				return Promise.reject(json);
 			}
@@ -40,7 +47,7 @@ const request = (options: any) => {
 
 export function login(loginRequest: LoginRequest) {
 	return request({
-		url: API_BASE_URL + '/authenticate',
+		url: API_BASE_URL + '/login',
 		method: 'POST',
 		body: JSON.stringify(loginRequest),
 	}) as Promise<ResponseLogin>;
@@ -108,4 +115,29 @@ export function requestRefreshToken(token: string) {
 
 export function logout() {
 	LocalStorage.remove(ACCESS_TOKEN);
+}
+
+export function redirectToSocialLogin(provider: SocialLoginProvider) {
+	return request({
+		url: API_BASE_URL + '/oauth/' + provider,
+		method: 'GET',
+	}) as Promise<ResponseSocialLoginPage>;
+}
+
+export function fetchHtml() {
+	fetch(API_BASE_URL + '/oauth/kakao')
+		.then(response => {
+			return response.text();
+		})
+		.then(html => {
+			document.body.innerHTML = html;
+		});
+}
+
+export function oauthCallback(provider: string | undefined, code: string) {
+	return request({
+		url: API_BASE_URL + '/oauth/login/' + provider,
+		method: 'POST',
+		body: JSON.stringify({ code }),
+	});
 }

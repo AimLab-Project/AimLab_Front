@@ -7,12 +7,34 @@ export interface FormValues extends yup.InferType<typeof RegisterSchema> {
 	passwordConfirm: string;
 }
 
+// const verifyEmail = async (value: string, values: yup.TestContext) => {
+// 	try {
+// 		const { exist } = await checkEmail(value);
+// 		if (exist) {
+// 			return false;
+// 		}
+
+// 		return true;
+// 	} catch (err) {
+// 		values.createError({ path: 'email' });
+// 		return false;
+// 	}
+// };
+
 export const RegisterSchema = yup.object().shape({
 	email: yup
 		.string()
 		.required('필수 입력 사항입니다.')
 		.email('올바른 이메일 형식이 아닙니다.')
 		.matches(/\S+@\S+\.\S+/, '이메일 형식으로 입력해주세요'),
+	// .test(
+	// 	'사용 가능한 이메일 입니다.',
+	// 	'이미 가입된 이메일 입니다.',
+	// 	async (value, values) => {
+	// 		const verified = await verifyEmail(value as string, values);
+	// 		return verified as boolean;
+	// 	},
+	// ),
 	code: yup.number(),
 	nickname: yup
 		.string()

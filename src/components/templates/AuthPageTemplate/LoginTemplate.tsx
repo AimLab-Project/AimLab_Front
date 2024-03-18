@@ -4,11 +4,13 @@ import Button from 'components/ui/atoms/Button/Button';
 import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
 import { LoginSchema } from 'components/validations/validations';
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
+import React from 'react';
+import SocialLoginButton from 'components/ui/molecules/socialLoginButton/SocialLoginButton';
+import { LocalStorage } from 'common/LocalStorage';
 
 const LoginTemplate = () => {
 	const navigate = useNavigate();
@@ -23,73 +25,97 @@ const LoginTemplate = () => {
 	});
 
 	const onSubmit = async (data: any) => {
-		console.log(data);
 		try {
-			await login({
+			const { access_token } = await login({
 				user_email: data.email,
 				user_password: data.password,
 			});
+			LocalStorage.set('ACCESS_TOKEN', access_token);
 			navigate('/');
 		} catch (err) {
 			console.log(err);
 		}
 	};
+
+	// const onClickSocialLogin = async (provider: SocialLoginProvider) => {
+	// 	try {
+	// 		// const { redirect_uri, client_id, scope } = await redirectToSocialLogin(
+	// 		// 	provider,
+	// 		// );
+	// 		// console.log(redirect_uri);
+	// 		// console.log(client_id);
+	// 		// console.log(scope);
+	// 		// window.location.href = redirect_uri;
+	// 		console.log(provider);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// };
+
 	return (
-		<Container height="650px" onSubmit={handleSubmit(onSubmit)}>
-			<Content>
-				<Wrapper>
-					<InputTitle>E-MAIL</InputTitle>
-					<Input
-						width="100%"
-						placeholder="이메일"
-						{...register('email')}
-						login={errors.email?.message || errors.password?.message}
-					/>
-				</Wrapper>
-				<Wrapper>
-					<InputTitle>PASSWORD</InputTitle>
-					<Input
-						width="100%"
-						placeholder="비밀번호(8자리 이상 문자, 숫자, 특수문자 사용)"
-						type="password"
-						icon={true}
-						{...register('password')}
-					/>
-				</Wrapper>
-				<Wrapper>
-					<Checks>
-						<CheckBox variant="primary" />
-						<span>로그인 상태 유지</span>
-						<CheckBox variant="primary" />
-						<span>아이디 저장</span>
-					</Checks>
-				</Wrapper>
-				<Wrapper>
-					<ETC>
-						<Button
-							label="LOGIN"
-							variant="primary"
-							size="large"
-							border="none"
-						/>
-					</ETC>
-				</Wrapper>
-				<Wrapper>
-					<AuthLink>
-						<Link to="/auth/repassword">비밀번호 찾기</Link>|
-						<Link to="/auth/signup">회원가입</Link>
-					</AuthLink>
-				</Wrapper>
-				<Wrapper>
-					<ETC>
-						<Line />
-						<span>간편 로그인</span>
-						<Line />
-					</ETC>
-				</Wrapper>
-				{/* 간편 로그인 */}
-			</Content>
-		</Container>
+		<>
+			{
+				<Container height="750px" onSubmit={handleSubmit(onSubmit)}>
+					<Content>
+						<Wrapper>
+							<InputTitle>E-MAIL</InputTitle>
+							<Input
+								width="100%"
+								placeholder="이메일"
+								{...register('email')}
+								login={errors.email?.message || errors.password?.message}
+							/>
+						</Wrapper>
+						<Wrapper>
+							<InputTitle>PASSWORD</InputTitle>
+							<Input
+								width="100%"
+								placeholder="비밀번호(8자리 이상 문자, 숫자, 특수문자 사용)"
+								type="password"
+								icon={true}
+								{...register('password')}
+							/>
+						</Wrapper>
+						<Wrapper>
+							<Checks>
+								<CheckBox variant="primary" />
+								<span>로그인 상태 유지</span>
+								<CheckBox variant="primary" />
+								<span>아이디 저장</span>
+							</Checks>
+						</Wrapper>
+						<Wrapper>
+							<ETC>
+								<Button
+									label="LOGIN"
+									variant="primary"
+									size="large"
+									border="none"
+								/>
+							</ETC>
+						</Wrapper>
+						<Wrapper>
+							<AuthLink>
+								<Link to="/auth/repassword">비밀번호 찾기</Link>|
+								<Link to="/auth/signup">회원가입</Link>
+							</AuthLink>
+						</Wrapper>
+						<Wrapper>
+							<ETC>
+								<Line />
+								<span>간편 로그인</span>
+								<Line />
+							</ETC>
+							<SocialLoginButtonContainer>
+								<SocialLoginButton provider="google" />
+								<SocialLoginButton provider="kakao" />
+								<SocialLoginButton provider="naver" />
+							</SocialLoginButtonContainer>
+						</Wrapper>
+					</Content>
+				</Container>
+			}
+		</>
 	);
 };
 
@@ -166,10 +192,18 @@ const ETC = styled.div`
 		font-family: 'Roboto Mono';
 		font-weight: 400;
 	}
+	padding-bottom: 20px;
 `;
 
 const Line = styled.div`
 	width: 130px;
 	height: 0px;
 	border: 1px solid #ffffff;
+`;
+
+const SocialLoginButtonContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: 10px;
 `;

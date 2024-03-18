@@ -45,4 +45,5 @@ const Title = styled.span`
 	font-size: 60px;
 	width: 780px;
 	text-align: left;
+	cursor: pointer;
 `;

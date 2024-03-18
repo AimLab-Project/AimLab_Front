@@ -21,10 +21,10 @@ const HeaderUser = () => {
 			{/* 로그인을 하지 않았을 경우 */}
 			{/* <Login>
 				<Span>
-					<Link to="#">로그인</Link>
+					<Link to="/auth/lagin">로그인</Link>
 				</Span>
 				<Span>
-					<Link to="#">회원가입</Link>
+					<Link to="/auth/signup">회원가입</Link>
 				</Span>
 			</Login> */}
 		</User>
