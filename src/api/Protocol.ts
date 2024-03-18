@@ -29,6 +29,7 @@ export type Resonse = {
 };
 
 export type User = {
+	access_token: string;
 	user_id: string; //uuid
 	user_email: string;
 	user_nickname: string;
@@ -46,4 +47,10 @@ export type SignUpRequest = {
 	user_password: string;
 	user_nickname: string;
 	key: string;
+};
+
+export type ResponseSocialLoginPage = Resonse & {
+	client_id: string;
+	redirect_uri: string;
+	scope: string;
 };

@@ -1,10 +1,11 @@
+import OAuth2RedirectHandler from 'api/oauth_handler';
 import MainLayout from 'components/layout/MainLayout';
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
 import NotFoundPage from 'pages/NotFoundPage';
-import { createBrowserRouter } from 'react-router-dom';
 import React from 'react';
-import OAuth2RedirectHandler from 'api/oauth_handler';
+import { createBrowserRouter } from 'react-router-dom';
+import OAuthPage from '../pages/OAuthPage';
 
 const router = createBrowserRouter([
 	{
@@ -21,12 +22,16 @@ const router = createBrowserRouter([
 		element: <AuthPage />,
 	},
 	{
-		path: '/*',
-		element: <NotFoundPage />,
+		path: '/oauth',
+		element: <OAuthPage />,
 	},
 	{
-		path: '/oauth/redirect',
+		path: '/:provider/callback',
 		element: <OAuth2RedirectHandler />,
+	},
+	{
+		path: '/*',
+		element: <NotFoundPage />,
 	},
 ]);
 
