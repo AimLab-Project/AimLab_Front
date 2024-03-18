@@ -1,5 +1,7 @@
 import Profile from 'components/ui/atoms/Profile/Profile';
 import Tier from 'components/ui/atoms/Tier/Tier';
+import CalHeatMap from 'components/ui/organisms/CalHeatMap/CalHeatMap';
+
 import React from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
@@ -30,7 +32,7 @@ const MainMyDataTemplate = () => {
 					</div>
 				</div>
 				<div>
-					{/* cal-heatmap */}
+					<CalHeatMap />
 					{/* button */}
 				</div>
 			</div>
