@@ -8,16 +8,18 @@ import CrisisAlertIcon from '@mui/icons-material/CrisisAlert';
 import FolderIcon from '@mui/icons-material/Folder';
 import Discord from '../../../../assets/image/Logo/discord.png';
 import HeaderUser from 'components/ui/molecules/HeaderUser/HeaderUser';
+import useRouter from 'hooks/useRouter';
 
 const MainHeader: React.FC = () => {
+	const { moveMainPage, moveGamePage, moveMyDayaPage } = useRouter();
 	return (
 		<Container>
 			<Content>
-				<Link to={'#'}>
+				<Link to={'#'} onClick={moveMainPage}>
 					<SLogo src={Logo} />
 				</Link>
 
-				<Wrapper>
+				<Wrapper onClick={moveMainPage}>
 					<HomeIcon sx={{ color: '#fff', width: '30px', height: '30px' }} />
 					<Span>메인화면</Span>
 				</Wrapper>
@@ -27,13 +29,13 @@ const MainHeader: React.FC = () => {
 					/>
 					<Span>게임</Span>
 					<Dropdown>
-						<li>사격게임</li>
-						<li>에임 봇 게임</li>
-						<li>에임 커스텀</li>
+						<li onClick={moveGamePage}>사격게임</li>
+						<li onClick={moveGamePage}>에임 봇 게임</li>
+						<li onClick={moveGamePage}>에임 커스텀</li>
 					</Dropdown>
 				</Wrapper>
 
-				<Wrapper>
+				<Wrapper onClick={moveMyDayaPage}>
 					<FolderIcon sx={{ color: '#fff', width: '30px', height: '30px' }} />
 					<Span>마이 데이터</Span>
 				</Wrapper>
