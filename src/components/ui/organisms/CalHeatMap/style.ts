@@ -5,19 +5,18 @@ export const TimeLine = styled.div`
 `;
 
 export const Cells = styled.div`
-	/* width: 500px; */
-	/* overflow: hidden; */
-	/* scroll */
+	max-width: 1500px;
+	width: 100%;
+	overflow: scroll;
 	display: inline-flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	height: 120px;
-	margin: 15px 0;
+	height: 180px;
 `;
 
 export const Celly = styled.div`
-	height: 12px;
-	width: 12px;
+	height: 18px;
+	width: 18px;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	/* margin: 2px;
    */
