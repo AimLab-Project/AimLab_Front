@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   button {
     border: none;
   }
+  
 
   ul > li {
     list-style: none;
