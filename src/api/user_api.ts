@@ -1,6 +1,6 @@
 import { LocalStorage } from 'common/LocalStorage';
 import { ACCESS_TOKEN, API_BASE_URL } from '../constants';
-import { LoginRequest, ResponseLogin, SignUpRequest } from './protocol';
+import { LoginRequest, ResponseLogin, SignUpRequest } from './Protocol';
 
 /**
  * TODO : 공용 API 로 뺌
