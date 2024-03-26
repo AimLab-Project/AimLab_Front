@@ -1,3 +1,4 @@
+import ExplanationTemplate from 'components/templates/ExplanationTemplate/ExplanationTemplate';
 import MainMyDataTemplate from 'components/templates/MainMyDataTemplate/MainMyDataTemplate';
 import UpdateBox from 'components/ui/atoms/UpdateBox/UpdateBox';
 import MainHeader from 'components/ui/organisms/MainHeader/MainHeader';
@@ -23,6 +24,7 @@ const MainPage = () => {
 					<UpdateBox />
 				</Container>
 				<MainMyDataTemplate />
+				<ExplanationTemplate />
 			</Main>
 		</>
 	);
