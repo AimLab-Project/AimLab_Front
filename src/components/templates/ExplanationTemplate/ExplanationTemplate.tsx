@@ -1,32 +1,33 @@
 import Button from 'components/ui/atoms/Button/Button';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
-import BG from '../../../assets/image/BG/explanation_BG.png';
-import Youtube from '../../../assets/image/item/Youtube.png';
+import PrimaryTemplate from './PrimaryTemplate/PrimaryTemplate';
+import SecondaryTemplate from './SecondaryTemplate/SecondaryTemplate';
+import TeriaryTemplate from './TeriaryTemplate/TeriaryTemplate';
 
 const ExplanationTemplate = () => {
+	const components = [PrimaryTemplate, SecondaryTemplate, TeriaryTemplate];
+	const [template, setTemplate] = useState(0);
+
+	const prevTemplate = () => {
+		setTemplate(template =>
+			template === 0 ? components.length - 1 : template - 1,
+		);
+	};
+
+	const nextTemplate = () => {
+		setTemplate(template => (template + 1) % components.length);
+	};
+
+	const ComponentToRender = components[template];
+
 	return (
 		<Container>
-			<Header>
-				<div style={{ width: '900px' }}>
-					<img src={Youtube} alt="youtube" />
-				</div>
-				<HeaderContent>
-					<HeaderText>
-						<span>정교한 사격 기술을 갖추고</span>
-						<span>명중률을 최대로 끌어올리세요.</span>
-						<span>에임 향상 게임으로 실력을 업그레이드 해보세요!</span>
-					</HeaderText>
-					<Button
-						size="xlarge"
-						variant="secondary"
-						border="secondary"
-						label="게임 하기"
-					/>
-				</HeaderContent>
-			</Header>
+			<button onClick={prevTemplate}>prev</button>
+			<ComponentToRender />
+			<button onClick={nextTemplate}>next</button>
 			<Body>
 				<BodyContent>
 					<BodyText>
@@ -54,14 +55,7 @@ const Container = styled.div`
 	width: 100%;
 	height: 1300px;
 `;
-const Header = styled.div`
-	width: 100%;
-	height: 650px;
-	background-image: url(${BG});
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-`;
+
 const Body = styled.div`
 	width: 100%;
 	height: 650px;
@@ -100,10 +94,9 @@ const BodyText = styled.div`
 	align-items: center;
 `;
 
-const HeaderContent = styled.div`
+export const HeaderContent = styled.div`
 	display: flex;
 	flex-direction: column;
-
 	height: 100%;
 	justify-content: space-around;
 	align-items: center;
@@ -111,7 +104,7 @@ const HeaderContent = styled.div`
 	font-weight: bold;
 `;
 
-const HeaderText = styled.div`
+export const HeaderText = styled.div`
 	color: rgb(255, 255, 255);
 	display: flex;
 	flex-direction: column;
@@ -120,4 +113,8 @@ const HeaderText = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 	gap: 25px;
+`;
+
+export const Image = styled.img`
+	width: 900px;
 `;
