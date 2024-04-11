@@ -4,8 +4,9 @@ import BG from '../../../../assets/image/BG/TeriaryNature.png';
 import Button from 'components/ui/atoms/Button/Button';
 import Mascotte from '../../../../assets/image/item/mascotte.png';
 import styled from 'styled-components';
+import { GamePageRouteProps } from '../PrimaryTemplate/PrimaryTemplate';
 
-const TeriaryTemplate = () => {
+const TeriaryTemplate = ({ moveGamePage }: GamePageRouteProps) => {
 	return (
 		<Header BG={BG}>
 			<Content>
@@ -18,6 +19,7 @@ const TeriaryTemplate = () => {
 					variant="teriary"
 					border="teriary"
 					label="게임 하기"
+					onClick={moveGamePage}
 				/>
 			</Content>
 			<Image src={Mascotte} alt="마스코트" />
