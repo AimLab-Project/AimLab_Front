@@ -5,6 +5,7 @@ import NotFoundPage from 'pages/NotFoundPage';
 import { createBrowserRouter } from 'react-router-dom';
 import React from 'react';
 import OAuth2RedirectHandler from 'api/oauth_handler';
+import MyPage from 'pages/MyPage';
 
 const router = createBrowserRouter([
 	{
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
 			{
 				path: '/',
 				element: <MainPage />,
+			},
+			{
+				path: '/my',
+				element: <MyPage />,
 			},
 		],
 	},
