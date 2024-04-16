@@ -4,12 +4,15 @@ import Youtube from '../../../../assets/image/item/Youtube.png';
 import BG from '../../../../assets/image/BG/explanation_BG.png';
 import { HeaderContent, HeaderText, Image } from '../ExplanationTemplate';
 import { Header } from '../style';
+import { GamePageRouteProps } from '../PrimaryTemplate/PrimaryTemplate';
 
-const SecondaryTemplate = () => {
+const SecondaryTemplate = ({ moveGamePage }: GamePageRouteProps) => {
 	return (
 		<>
 			<Header BG={BG}>
-				<Image src={Youtube} alt="youtube" />
+				<div style={{ width: '900px' }}>
+					<Image src={Youtube} alt="youtube" />
+				</div>
 				<HeaderContent>
 					<HeaderText>
 						<span>정교한 사격 기술을 갖추고</span>
@@ -21,6 +24,7 @@ const SecondaryTemplate = () => {
 						variant="secondary"
 						border="secondary"
 						label="게임 하기"
+						onClick={moveGamePage}
 					/>
 				</HeaderContent>
 			</Header>

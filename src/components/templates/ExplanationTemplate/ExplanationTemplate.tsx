@@ -1,33 +1,13 @@
 import Button from 'components/ui/atoms/Button/Button';
-
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
-import PrimaryTemplate from './PrimaryTemplate/PrimaryTemplate';
-import SecondaryTemplate from './SecondaryTemplate/SecondaryTemplate';
-import TeriaryTemplate from './TeriaryTemplate/TeriaryTemplate';
+import GameExplan from './GameExplan';
 
 const ExplanationTemplate = () => {
-	const components = [PrimaryTemplate, SecondaryTemplate, TeriaryTemplate];
-	const [template, setTemplate] = useState(0);
-
-	const prevTemplate = () => {
-		setTemplate(template =>
-			template === 0 ? components.length - 1 : template - 1,
-		);
-	};
-
-	const nextTemplate = () => {
-		setTemplate(template => (template + 1) % components.length);
-	};
-
-	const ComponentToRender = components[template];
-
 	return (
 		<Container>
-			<button onClick={prevTemplate}>prev</button>
-			<ComponentToRender />
-			<button onClick={nextTemplate}>next</button>
+			<GameExplan />
 			<Body>
 				<BodyContent>
 					<BodyText>

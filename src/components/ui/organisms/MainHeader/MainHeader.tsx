@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../../../../assets/image/Logo/logo.png';
 import HomeIcon from '@mui/icons-material/Home';
@@ -15,9 +14,9 @@ const MainHeader: React.FC = () => {
 	return (
 		<Container>
 			<Content>
-				<Link to={'#'} onClick={moveMainPage}>
+				<div onClick={moveMainPage}>
 					<SLogo src={Logo} />
-				</Link>
+				</div>
 
 				<Wrapper onClick={moveMainPage}>
 					<HomeIcon sx={{ color: '#fff', width: '30px', height: '30px' }} />
@@ -29,7 +28,7 @@ const MainHeader: React.FC = () => {
 					/>
 					<Span>게임</Span>
 					<Dropdown>
-						<li onClick={moveGamePage}>사격게임</li>
+						<li onClick={moveGamePage}>사격 게임</li>
 						<li onClick={moveGamePage}>에임 봇 게임</li>
 						<li onClick={moveGamePage}>에임 커스텀</li>
 					</Dropdown>
@@ -108,7 +107,7 @@ const Dropdown = styled.ul`
 	list-style: none;
 	color: ${theme.PALETTE.fwhite};
 	display: none;
-	width: 300px;
+	width: 350px;
 	height: 50px;
 	background: #000;
 	border-radius: 40px;
