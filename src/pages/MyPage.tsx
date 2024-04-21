@@ -1,3 +1,4 @@
+import MyPageNav from 'components/ui/molecules/MyPageNav/MyPageNav';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -7,7 +8,9 @@ const MyPage = () => {
 			<Container>
 				<Title>마이페이지</Title>
 			</Container>
-			<Wrapper></Wrapper>
+			<Wrapper>
+				<MyPageNav />
+			</Wrapper>
 		</>
 	);
 };

@@ -3,14 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import BG from '../../../assets/image/BG/main_BG.png';
-
-import NotLogin from './NotLoginMyData';
+import LoginMyData from './LoginMyData';
 
 const MainMyDataTemplate = () => {
 	return (
 		<Container>
-			{/* <LoginMyData /> */}
-			<NotLogin />
+			<LoginMyData />
+			{/* <NotLogin /> */}
 		</Container>
 	);
 };
