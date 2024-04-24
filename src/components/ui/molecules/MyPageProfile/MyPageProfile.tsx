@@ -23,7 +23,7 @@ export default MyPageProfile;
 
 const Container = styled.div`
 	width: 100%;
-	height: 100%;
+	height: 200px;
 	display: flex;
 	gap: 30px;
 `;

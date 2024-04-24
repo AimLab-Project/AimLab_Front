@@ -30,7 +30,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: flex-start;
-	margin: 50px;
+	/* margin: 50px; */
 `;
 
 const Title = styled.div`

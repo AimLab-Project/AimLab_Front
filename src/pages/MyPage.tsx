@@ -1,4 +1,5 @@
 import MyPageNav from 'components/ui/molecules/MyPageNav/MyPageNav';
+import MyPageHeader from 'components/ui/organisms/MyPageHeader/MyPageHeader';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -10,6 +11,7 @@ const MyPage = () => {
 			</Container>
 			<Wrapper>
 				<MyPageNav />
+				<MyPageHeader />
 			</Wrapper>
 		</>
 	);
@@ -42,6 +44,9 @@ const Wrapper = styled.div`
 	border-top: 1px solid #fff;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
+	padding: 50px;
+	display: flex;
+	gap: 50px;
 `;
 
 const Title = styled.span`

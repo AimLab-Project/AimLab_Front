@@ -13,9 +13,9 @@ const MyPageTier = () => {
 export default MyPageTier;
 
 const Container = styled.div`
-	width: 500px;
-	height: 300px;
+	/* width: 530px; */
+	height: 270px;
 	background-color: #1b2a43;
 	border-radius: 20px;
-	padding: 30px;
+	padding: 20px;
 `;
