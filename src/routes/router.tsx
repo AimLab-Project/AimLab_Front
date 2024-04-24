@@ -6,6 +6,7 @@ import NotFoundPage from 'pages/NotFoundPage';
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import OAuthPage from '../pages/OAuthPage';
+import MyPage from 'pages/MyPage';
 
 const router = createBrowserRouter([
 	{
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
 			{
 				path: '/',
 				element: <MainPage />,
+			},
+			{
+				path: '/my',
+				element: <MyPage />,
 			},
 		],
 	},

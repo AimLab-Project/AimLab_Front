@@ -1,4 +1,4 @@
-import API_KEY from 'consts/API_KEY';
+import API_KEY from 'constants/API_KEY';
 import { useNavigate } from 'react-router-dom';
 
 const useRouter = () => {

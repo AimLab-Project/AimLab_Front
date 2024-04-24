@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
 
 import theme from 'styles/theme';
-import { Link } from 'react-router-dom';
+
 import Profile from 'components/ui/atoms/Profile/Profile';
 import useRouter from 'hooks/useRouter';
 
@@ -14,11 +14,9 @@ const HeaderUser = () => {
 	return (
 		// 로그인을 했을 경우
 		<User>
-			<Propfile>
-				<Link to="#" onClick={moveMyPage}>
-					<Span>nickname</Span>
-					<Profile width="65px" height="65px" />
-				</Link>
+			<Propfile onClick={moveMyPage}>
+				<Span>nickname</Span>
+				<Profile width="65px" height="65px" />
 			</Propfile>
 
 			{/* 로그인을 하지 않았을 경우 */}
@@ -48,14 +46,9 @@ const Propfile = styled.div`
 	height: 100%;
 	display: flex;
 	justify-content: center;
-
-	a {
-		text-decoration: none;
-		display: flex;
-		align-items: center;
-		gap: 20px;
-		color: ${theme.PALETTE.fblack};
-	}
+	align-items: center;
+	gap: 20px;
+	color: ${theme.PALETTE.fblack};
 `;
 
 // const Login = styled.div`
@@ -71,7 +64,7 @@ const Span = styled.span`
 	font-weight: bold;
 	font-size: 25px;
 	color: ${theme.PALETTE.fblack};
-
+	cursor: pointer;
 	a {
 		text-decoration: none;
 		color: ${theme.PALETTE.fblack};
