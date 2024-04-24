@@ -14,12 +14,14 @@ const useRouter = () => {
 	const moveGamePage = () => toMove(API_KEY.GAME);
 	const moveMyDayaPage = () => toMove(API_KEY.MY_DATA);
 	const moveMyPage = () => toMove(API_KEY.MY_PAGE);
+	const moveLoginPage = () => toMove(API_KEY.LOGIN);
 
 	return {
 		moveMainPage,
 		moveGamePage,
 		moveMyDayaPage,
 		moveMyPage,
+		moveLoginPage,
 	};
 };
 

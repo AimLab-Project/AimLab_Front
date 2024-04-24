@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import theme from 'styles/theme';
 import BG from '../../../assets/image/BG/main_blur.png';
 import chart from '../../../assets/image/user/chart.png';
+import useRouter from 'hooks/useRouter';
 
 const NotLogin = () => {
+	const { moveLoginPage } = useRouter();
 	return (
 		<Container>
 			<Wrapper>
@@ -27,6 +29,7 @@ const NotLogin = () => {
 						variant="primary"
 						label="로그인 하기"
 						border="none"
+						onClick={moveLoginPage}
 					/>
 				</ButtonBox>
 			</Wrapper>

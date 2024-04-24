@@ -6,8 +6,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import BG from '../assets/image/BG/AimSharp_BG.png';
+import { useAuth } from 'context/AuthContext';
 
 const MainPage = () => {
+	const { user, isLoggedIn } = useAuth();
+	console.log(`user : `, user);
+	console.log(`isLoggedIn : `, isLoggedIn);
 	return (
 		<>
 			<Main>

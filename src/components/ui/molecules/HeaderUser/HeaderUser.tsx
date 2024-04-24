@@ -4,30 +4,35 @@ import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
 
 import theme from 'styles/theme';
 
-import useRouter from 'hooks/useRouter';
 import Profile from 'components/ui/atoms/Profile/Profile';
+import useRouter from 'hooks/useRouter';
+import { useAuth } from 'context/AuthContext';
+import { Link } from 'react-router-dom';
 
 // import { Link } from 'react-router-dom';
 
 const HeaderUser = () => {
 	const { moveMyPage } = useRouter();
+	const { isLoggedIn, user } = useAuth();
 	return (
-		// 로그인을 했을 경우
 		<User>
-			<Propfile onClick={moveMyPage}>
-				<Span>nickname</Span>
-				<Profile width="65px" height="65px" />
-			</Propfile>
+			{isLoggedIn && (
+				<Propfile onClick={moveMyPage}>
+					<Span>{user.user_nickname}</Span>
+					<Profile width="65px" height="65px" />
+				</Propfile>
+			)}
 
-			{/* 로그인을 하지 않았을 경우 */}
-			{/* <Login>
-				<Span>
-					<Link to="#">로그인</Link>
-				</Span>
-				<Span>
-					<Link to="#">회원가입</Link>
-				</Span>
-			</Login> */}
+			{!isLoggedIn && (
+				<Login>
+					<Span>
+						<Link to="/auth/login">로그인</Link>
+					</Span>
+					<Span>
+						<Link to="/auth/signup">회원가입</Link>
+					</Span>
+				</Login>
+			)}
 		</User>
 	);
 };
@@ -51,13 +56,13 @@ const Propfile = styled.div`
 	color: ${theme.PALETTE.fblack};
 `;
 
-// const Login = styled.div`
-// 	height: 100%;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	gap: 30px;
-// `;
+const Login = styled.div`
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+`;
 
 const Span = styled.span`
 	font-family: 'Roboto Mono';

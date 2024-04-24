@@ -2,14 +2,20 @@ import SignupTemplate from 'components/templates/AuthPageTemplate/SignupTemplate
 import React from 'react';
 import styled from 'styled-components';
 import BG from '../assets/image/BG/auth_BG.png';
+import { useParams } from 'react-router-dom';
+import LoginTemplate from 'components/templates/AuthPageTemplate/LoginTemplate';
+import RePasswordTemplate from 'components/templates/MyPageTemplate/RePasswordTemplate';
+import useRouter from 'hooks/useRouter';
 
 const AuthPage = () => {
+	const { page } = useParams();
+	const { moveMainPage } = useRouter();
 	return (
 		<Container>
-			<Title>aim sharp</Title>
-			<SignupTemplate />
-			{/* <LoginTemplate /> */}
-			{/* <RePasswordTemplate /> */}
+			<Title onClick={moveMainPage}>aim sharp</Title>
+			{page === 'signup' && <SignupTemplate />}
+			{page === 'login' && <LoginTemplate />}
+			{page === 'repassword' && <RePasswordTemplate />}
 		</Container>
 	);
 };
@@ -40,4 +46,5 @@ const Title = styled.span`
 	font-size: 60px;
 	width: 780px;
 	text-align: left;
+	cursor: pointer;
 `;

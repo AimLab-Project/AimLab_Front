@@ -2,12 +2,14 @@ import Button from 'components/ui/atoms/Button/Button';
 import Profile from 'components/ui/atoms/Profile/Profile';
 import Tier from 'components/ui/atoms/Tier/Tier';
 import CalHeatMap from 'components/ui/organisms/CalHeatMap/CalHeatMap';
+import useRouter from 'hooks/useRouter';
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginMyData = () => {
+	const { moveMyPage } = useRouter();
 	return (
 		<Content>
 			<UserData>
@@ -32,6 +34,7 @@ const LoginMyData = () => {
 						size="medium"
 						variant="primary"
 						border="primary"
+						onClick={moveMyPage}
 					/>
 				</Link>
 			</HeatMap>
