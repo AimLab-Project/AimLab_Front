@@ -279,6 +279,7 @@ export default SignupTemplate;
 const Wrapper = styled.div`
 	padding: 20px 0;
 	height: 50px;
+	box-sizing: none;
 `;
 
 const Checks = styled.div`

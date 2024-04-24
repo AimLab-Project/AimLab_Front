@@ -21,8 +21,8 @@ const MyPageNav = () => {
 export default MyPageNav;
 
 const Container = styled.div`
-	width: 500px;
-	height: 700px;
+	width: 450px;
+	height: 650px;
 	background-color: #1a2537;
 	border-radius: 30px;
 	color: #fff;
@@ -30,6 +30,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: flex-start;
+	/* margin: 50px; */
 `;
 
 const Title = styled.div`
@@ -54,9 +55,13 @@ const List = styled.ul`
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
+		list-style: auto;
 	}
 
 	li {
 		cursor: pointer;
+		:hover {
+			color: #ffb546;
+		}
 	}
 `;

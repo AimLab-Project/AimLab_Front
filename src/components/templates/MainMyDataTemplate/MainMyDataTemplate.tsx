@@ -3,6 +3,17 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import BG from '../../../assets/image/BG/main_BG.png';
+<<<<<<< HEAD
+import LoginMyData from './LoginMyData';
+
+const MainMyDataTemplate = () => {
+	return (
+		<Container>
+			<LoginMyData />
+			{/* <NotLogin /> */}
+		</Container>
+	);
+=======
 
 import NotLogin from './NotLoginMyData';
 import { useAuth } from 'context/AuthContext';
@@ -11,6 +22,7 @@ import LoginMyData from './LoginMyData';
 const MainMyDataTemplate = () => {
 	const { isLoggedIn } = useAuth();
 	return <Container>{isLoggedIn ? <LoginMyData /> : <NotLogin />}</Container>;
+>>>>>>> ae1cb7206633f5d4b60e963ef00a01929c500285
 };
 
 export default MainMyDataTemplate;
