@@ -33,6 +33,10 @@ const router = createBrowserRouter([
 		path: '/*',
 		element: <NotFoundPage />,
 	},
+	{
+		path: '/oauth/redirect',
+		element: <OAuth2RedirectHandler />,
+	},
 ]);
 
 export default router;

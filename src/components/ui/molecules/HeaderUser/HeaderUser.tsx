@@ -4,8 +4,8 @@ import ProfileBg from '../../../../assets/image/BG/profile_BG.png';
 
 import theme from 'styles/theme';
 import { Link } from 'react-router-dom';
-import useRouter from 'hooks/useRouter';
 import Profile from 'components/ui/atoms/Profile/Profile';
+import useRouter from 'hooks/useRouter';
 
 // import { Link } from 'react-router-dom';
 

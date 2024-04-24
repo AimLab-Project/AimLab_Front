@@ -53,4 +53,5 @@ export type ResponseSocialLoginPage = Resonse & {
 	client_id: string;
 	redirect_uri: string;
 	scope: string;
+	email_certification: number;
 };
