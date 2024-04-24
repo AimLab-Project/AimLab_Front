@@ -1,4 +1,4 @@
-import OAuth2RedirectHandler from 'api/oauth_handler';
+import OAuth2RedirectHandler from 'api/OAuthHandler';
 import MainLayout from 'components/layout/MainLayout';
 import AuthPage from 'pages/AuthPage';
 import MainPage from 'pages/MainPage';
