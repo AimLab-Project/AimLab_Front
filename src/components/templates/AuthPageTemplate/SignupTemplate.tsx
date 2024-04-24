@@ -20,9 +20,9 @@ import {
 	requestEmailVerification,
 	signup,
 	// signup,
-} from 'api/user_api';
-import useTimer from 'hook/useTimer';
-import { secondsToMMSS } from 'hook/util';
+} from 'api/User';
+import useTimer from 'hooks/useTimer';
+import { secondsToMMSS } from 'hooks/util';
 
 /**
  *

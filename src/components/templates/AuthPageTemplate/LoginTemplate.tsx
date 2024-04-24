@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { login } from 'api/user_api';
+import { login } from 'api/User';
 import Button from 'components/ui/atoms/Button/Button';
 import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';

@@ -2,7 +2,7 @@ import { LocalStorage } from 'common/LocalStorage';
 import { ACCESS_TOKEN } from '../constants';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { oauthCallback } from './user_api';
+import { oauthCallback } from './User';
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
