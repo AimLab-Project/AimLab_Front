@@ -5,14 +5,12 @@ import theme from 'styles/theme';
 import BG from '../../../assets/image/BG/main_BG.png';
 
 import NotLogin from './NotLoginMyData';
+import { useAuth } from 'context/AuthContext';
+import LoginMyData from './LoginMyData';
 
 const MainMyDataTemplate = () => {
-	return (
-		<Container>
-			{/* <LoginMyData /> */}
-			<NotLogin />
-		</Container>
-	);
+	const { isLoggedIn } = useAuth();
+	return <Container>{isLoggedIn ? <LoginMyData /> : <NotLogin />}</Container>;
 };
 
 export default MainMyDataTemplate;

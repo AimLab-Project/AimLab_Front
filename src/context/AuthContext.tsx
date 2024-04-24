@@ -5,6 +5,7 @@ import { removeAccessToken, setAccessToken } from 'api/HttpUtil';
 
 interface AuthState {
 	user: User;
+	isLoggedIn: boolean;
 }
 
 interface AuthContextActions {
@@ -23,6 +24,7 @@ const defaultUser: User = {
 
 const AuthContext = createContext<AuthContextType>({
 	user: defaultUser,
+	isLoggedIn: false,
 	signIn: () => {
 		// Placeholder function
 	},
@@ -43,8 +45,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 		removeAccessToken();
 	};
 
+	const isLoggedIn = user.access_token !== '';
+
 	return (
-		<AuthContext.Provider value={{ user, signIn, signOut }}>
+		<AuthContext.Provider value={{ user, signIn, signOut, isLoggedIn }}>
 			{children}
 		</AuthContext.Provider>
 	);
@@ -55,5 +59,6 @@ export const useAuth = () => {
 	if (!context) {
 		throw new Error('useAuth must be used within an AuthProvider');
 	}
+
 	return context;
 };

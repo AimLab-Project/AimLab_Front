@@ -7,20 +7,21 @@ import {
 } from './Protocol';
 import { SocialLoginProvider } from 'components/ui/molecules/socialLoginButton/SocialLoginButton';
 
-function wrapRequest(request) {
-	return new Promise((resolve, reject) => {
-		request()
-			.then(data => {
-				// if (data.code == "토큰 만료") {
-				// 	return requestRefreshToken();
-				// }
-				resolve(data);
-			})
-			.catch(error => {
-				console.error(error);
-				resolve(null);
-			});
-	});
+function wrapRequest(request: any) {
+	return request;
+	// return new Promise((resolve, reject) => {
+	// 	request()
+	// 		.then(data => {
+	// 			// if (data.code == "토큰 만료") {
+	// 			// 	return requestRefreshToken();
+	// 			// }
+	// 			resolve(data);
+	// 		})
+	// 		.catch(error => {
+	// 			console.error(error);
+	// 			resolve(null);
+	// 		});
+	// });
 }
 
 export function login(loginRequest: LoginRequest) {

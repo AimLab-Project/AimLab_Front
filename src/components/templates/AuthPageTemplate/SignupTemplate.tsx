@@ -9,7 +9,7 @@ import InputGroup from 'components/ui/molecules/InputGroup/InputGroup';
 import { RegisterSchema } from 'components/validations/validations';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import { Container, Content } from './LoginTemplate';
@@ -23,6 +23,7 @@ import {
 } from 'api/User';
 import useTimer from 'hooks/useTimer';
 import { secondsToMMSS } from 'hooks/util';
+import useRouter from 'hooks/useRouter';
 
 /**
  *
@@ -46,7 +47,7 @@ const SignupTemplate = () => {
 		mode: 'onChange',
 	});
 
-	const navigate = useNavigate();
+	const { moveLoginPage } = useRouter();
 	const [emailDisabled, setEmailDisabled] = useState(false);
 	const [emailSuccess, setEmailSuccess] = useState(false);
 	const [codeDisabled, setCodeDisabled] = useState(false);
@@ -152,7 +153,7 @@ const SignupTemplate = () => {
 				key,
 			});
 
-			navigate('/auth/login');
+			moveLoginPage();
 		} catch (err) {
 			console.log(err);
 		}

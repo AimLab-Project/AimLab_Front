@@ -5,15 +5,16 @@ import CheckBox from 'components/ui/atoms/CheckBox/CheckBox';
 import Input from 'components/ui/atoms/Input/Input';
 import { LoginSchema } from 'components/validations/validations';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import React from 'react';
 import SocialLoginButton from 'components/ui/molecules/socialLoginButton/SocialLoginButton';
 import { LocalStorage } from 'common/LocalStorage';
+import useRouter from 'hooks/useRouter';
 
 const LoginTemplate = () => {
-	const navigate = useNavigate();
+	const { moveMainPage } = useRouter();
 
 	const {
 		register,
@@ -31,7 +32,7 @@ const LoginTemplate = () => {
 				user_password: data.password,
 			});
 			LocalStorage.set('ACCESS_TOKEN', access_token);
-			navigate('/');
+			moveMainPage();
 		} catch (err) {
 			console.log(err);
 		}
