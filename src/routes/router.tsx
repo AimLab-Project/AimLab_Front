@@ -7,6 +7,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import OAuthPage from '../pages/OAuthPage';
 import MyPage from 'pages/MyPage';
+import GamePage from 'pages/GamePage';
 
 const router = createBrowserRouter(
 	[
@@ -42,6 +43,10 @@ const router = createBrowserRouter(
 		{
 			path: '/oauth/redirect',
 			element: <OAuth2RedirectHandler />,
+		},
+		{
+			path: '/game/:gameType',
+			element: <GamePage />,
 		},
 	],
 	{ basename: '/AimLab_Front' },
