@@ -31,11 +31,7 @@ const RePasswordTemplate = () => {
 			<Content>
 				<Wrapper>
 					<InputGroup>
-						<Input
-							width="315px"
-							placeholder="아이디(이메일)"
-							value={'dbsrnr2747@naver.com'}
-						/>
+						<Input width="315px" placeholder="아이디(이메일)" value={''} />
 						<Button
 							size="small"
 							variant="primary"
