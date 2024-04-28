@@ -1,5 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+// import { IconGoogle } from 'assets/icons/login/IconGoogle';
+// import { IconKaKao } from 'assets/icons/login/IconKaKao';
+// import { IconNaver } from 'assets/icons/login/IconNaver';
+import IconGoogle from 'assets/icons/login/google.png';
+import IconKaKao from 'assets/icons/login/kakao.png';
+import IconNaver from 'assets/icons/login/naver.png';
 
 export type SocialLoginProvider = 'kakao' | 'naver' | 'google';
 type LoginButtonProps = {
@@ -9,18 +15,21 @@ type LoginButtonProps = {
 const btnStyle = {
 	naver: {
 		backgroundColor: '#03c75a',
-		iconColor: '#fff',
-		textColor: '#fff',
+		textColor: '#ffffff',
+		icon: IconNaver,
+		fontFamily: 'Roboto, sans-serif',
 	},
 	kakao: {
-		backgroundColor: '#FEE500',
-		iconColor: '#000000',
-		textColor: 'rgba(0, 0, 0, 0.85)',
+		backgroundColor: '#fee500',
+		textColor: '#000000d9',
+		icon: IconKaKao,
+		fontFamily: 'Roboto, sans-serif',
 	},
 	google: {
 		backgroundColor: '#ffffff',
-		iconColor: '#fff',
 		textColor: '#3c1e1e',
+		icon: IconGoogle,
+		fontFamily: 'Roboto, sans-serif',
 	},
 };
 
@@ -32,33 +41,36 @@ const nameMap = {
 
 // https://developers.kakao.com/docs/latest/ko/kakaologin/design-guide
 // https://developers.google.com/identity/branding-guidelines?hl=ko
+// https://developers.naver.com/docs/login/bi/bi.md
 const Wrapper = styled.a`
 	text-decoration: none;
 	font-size: 1rem;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	padding: 0 0.5rem;
+	padding: 0 12px;
 	border-radius: 12px;
 	height: 60px;
 	font-family: Roboto-Medium, Helvetica, sans-serif;
 	background-color: ${({ provider }: LoginButtonProps) =>
 		btnStyle[provider].backgroundColor};
 	color: ${({ provider }: LoginButtonProps) => btnStyle[provider].textColor};
+	gap: 1rem;
 `;
 
 const Icon = styled.img`
-	width: 1.125rem;
-	height: 1.125rem;
+	width: 18px;
+	height: 18px;
 	margin: 0 0.5rem;
-	color: ${({ provider }: LoginButtonProps) => btnStyle[provider].iconColor};
+	color: ${({ provider }: LoginButtonProps) => btnStyle[provider]};
 `;
 
 const Text = styled.p`
-	width: 100%;
 	text-align: center;
-	margin: 0.5rem 2rem;
+	margin: 0.5rem 0;
 	font-size: 1rem;
+	fontfamily: ${({ provider }: LoginButtonProps) =>
+		btnStyle[provider].fontFamily};
 `;
 
 export default function SocialLoginButton({ provider }: LoginButtonProps) {
@@ -67,8 +79,8 @@ export default function SocialLoginButton({ provider }: LoginButtonProps) {
 			href={`https://api.aimsharp.co.kr/oauth/${provider}`}
 			provider={provider}
 		>
-			<Icon src={`/login/${provider}.png`} provider={provider} />
-			<Text> {nameMap[provider]}로 시작하기 </Text>
+			<Icon src={btnStyle[provider].icon} provider={provider} />
+			<Text provider={provider}> {nameMap[provider]}로 시작하기 </Text>
 		</Wrapper>
 	);
 }
