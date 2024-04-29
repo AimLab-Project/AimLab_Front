@@ -51,7 +51,7 @@ const Wrapper = styled.a`
 	padding: 0 12px;
 	border-radius: 12px;
 	height: 60px;
-	font-family: Roboto-Medium, Helvetica, sans-serif;
+	font-family: 'Roboto-Medium', Helvetica, sans-serif;
 	background-color: ${({ provider }: LoginButtonProps) =>
 		btnStyle[provider].backgroundColor};
 	color: ${({ provider }: LoginButtonProps) => btnStyle[provider].textColor};
