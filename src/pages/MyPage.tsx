@@ -1,4 +1,4 @@
-import MyPageNav from 'components/ui/molecules/MyPageNav/MyPageNav';
+import MyPageNav from 'components/ui/molecules/MyPage/MyPageNav/MyPageNav';
 import MyPageHeader from 'components/ui/organisms/MyPageHeader/MyPageHeader';
 import React from 'react';
 import styled from 'styled-components';
