@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/AimLab_Front/static/css/main.d3e14dd7.css",
-    "main.js": "/AimLab_Front/static/js/main.5ec2dd10.js",
+    "main.js": "/AimLab_Front/static/js/main.735bb9c5.js",
     "static/js/651.5ece2024.chunk.js": "/AimLab_Front/static/js/651.5ece2024.chunk.js",
     "static/media/main_blur.png": "/AimLab_Front/static/media/main_blur.daf6eb714f6b0a614558.png",
     "static/media/Nature.png": "/AimLab_Front/static/media/Nature.df6f9639cc6189865be3.png",
@@ -27,11 +27,11 @@
     "static/media/profile_BG.png": "/AimLab_Front/static/media/profile_BG.5af93045d34faaa4dda0.png",
     "index.html": "/AimLab_Front/index.html",
     "main.d3e14dd7.css.map": "/AimLab_Front/static/css/main.d3e14dd7.css.map",
-    "main.5ec2dd10.js.map": "/AimLab_Front/static/js/main.5ec2dd10.js.map",
+    "main.735bb9c5.js.map": "/AimLab_Front/static/js/main.735bb9c5.js.map",
     "651.5ece2024.chunk.js.map": "/AimLab_Front/static/js/651.5ece2024.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d3e14dd7.css",
-    "static/js/main.5ec2dd10.js"
+    "static/js/main.735bb9c5.js"
   ]
 }
