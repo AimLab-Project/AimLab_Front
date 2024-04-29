@@ -69,7 +69,7 @@ const Text = styled.p`
 	text-align: center;
 	margin: 0.5rem 0;
 	font-size: 1rem;
-	fontfamily: ${({ provider }: LoginButtonProps) =>
+	font-family: ${({ provider }: LoginButtonProps) =>
 		btnStyle[provider].fontFamily};
 `;
 
