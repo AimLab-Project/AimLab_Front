@@ -16,6 +16,11 @@ export const SideContent = styled.div`
 	border-top: 3px solid rgba(0, 0, 0, 0.7);
 	border-bottom: 3px solid rgba(0, 0, 0, 0.7);
 	border-left: 3px solid rgba(0, 0, 0, 0.7);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	padding-left: 15px;
 `;
 
 export const Content = styled.div`
@@ -26,4 +31,41 @@ export const Content = styled.div`
 	border-bottom: 3px solid rgba(255, 255, 255, 0.33);
 	border-right: 3px solid rgba(255, 255, 255, 0.33);
 	border-radius: 0px 30px 30px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+export const Title = styled.div`
+	font-size: 30px;
+	font-family: 'Roboto Flex';
+	color: #fff;
+`;
+
+export const Tip = styled.div`
+	color: #dee1e7;
+	font-size: 20px;
+`;
+
+export const SubTitle = styled.span`
+	font-size: 15px;
+	color: #fff;
+`;
+
+export const UserName = styled.span`
+	font-size: 30px;
+	color: #ff6942;
+	font-weight: bold;
+`;
+
+export const Wrapper = styled.div`
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+`;
+
+export const SubContainer = styled.div`
+	display: flex;
+	flex-direction: column;
 `;
