@@ -28,4 +28,5 @@ const Container = styled.div`
 const Span = styled.span`
 	font-size: 12px;
 	font-family: 'Old Standard TT';
+	color: #fff;
 `;
