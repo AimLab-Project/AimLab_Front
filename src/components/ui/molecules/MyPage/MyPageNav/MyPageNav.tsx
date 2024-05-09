@@ -21,6 +21,9 @@ const MyPageNav = () => {
 export default MyPageNav;
 
 const Container = styled.div`
+	position: absolute;
+	left: 50px;
+	top: 50px;
 	width: 450px;
 	height: 650px;
 	background-color: #1a2537;

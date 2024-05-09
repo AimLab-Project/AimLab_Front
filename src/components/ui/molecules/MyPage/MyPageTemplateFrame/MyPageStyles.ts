@@ -18,7 +18,7 @@ export const SideContent = styled.div`
 	border-left: 3px solid rgba(0, 0, 0, 0.7);
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: flex-start;
 	padding-left: 15px;
 `;
@@ -27,9 +27,9 @@ export const Content = styled.div`
 	width: 70%;
 	height: 100%;
 	background-color: rgba(107, 112, 125, 0.7);
-	border-top: 3px solid rgba(255, 255, 255, 0.33);
-	border-bottom: 3px solid rgba(255, 255, 255, 0.33);
-	border-right: 3px solid rgba(255, 255, 255, 0.33);
+	border-top: 3px solid rgba(0, 0, 0, 0.7);
+	border-bottom: 3px solid rgba(0, 0, 0, 0.7);
+	border-right: 3px solid rgba(0, 0, 0, 0.7);
 	border-radius: 0px 30px 30px 0px;
 	display: flex;
 	align-items: center;
@@ -37,6 +37,8 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.div`
+	width: 100%;
+	padding-top: 50px;
 	font-size: 30px;
 	font-family: 'Roboto Flex';
 	color: #fff;
@@ -65,7 +67,20 @@ export const Wrapper = styled.div`
 	gap: 10px;
 `;
 
+export const BtnWrapper = styled.div`
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+`;
+
 export const SubContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+`;
+
+export const InputTitle = styled.div`
+	color: #fff;
+	font-size: 15px;
 `;

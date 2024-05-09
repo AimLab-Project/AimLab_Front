@@ -27,6 +27,9 @@ const MyPageHeader = () => {
 export default MyPageHeader;
 
 const Container = styled.div`
+	position: absolute;
+	top: 50px;
+	left: 550px;
 	width: 1150px;
 	height: 370px;
 	border-radius: 30px;
