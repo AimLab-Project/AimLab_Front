@@ -3,6 +3,7 @@ import Input from 'components/ui/atoms/Input/Input';
 import MyPageAlarm from 'components/ui/atoms/MyPageAlarm/MyPageAlarm';
 import React from 'react';
 import {
+	BtnWrapper,
 	Container,
 	Content,
 	SideContent,
@@ -12,7 +13,7 @@ import {
 	Title,
 	UserName,
 	Wrapper,
-} from './MyPageStyles';
+} from '../MyPageStyles';
 
 const MyPageNickNameTemplate = () => {
 	return (
@@ -24,7 +25,7 @@ const MyPageNickNameTemplate = () => {
 					사용자 정보 입니다.
 				</Tip>
 				<div>
-					<MyPageAlarm />
+					<MyPageAlarm text="해당 정보는 30일 마다 변경할 수 있습니다. 2024.05.30일에 변경 가능합니다." />
 				</div>
 			</SideContent>
 			<Content>
@@ -40,14 +41,14 @@ const MyPageNickNameTemplate = () => {
 						<SubTitle>변경할 닉네임</SubTitle>
 						<Input width="480px" placeholder="" value={'GUEST038324'} />
 					</Wrapper>
-					<Wrapper>
+					<BtnWrapper>
 						<Button
 							variant="teriary"
 							border="teriary"
 							label="닉네임 변경하기"
 							size="large"
 						/>
-					</Wrapper>
+					</BtnWrapper>
 				</SubContainer>
 			</Content>
 		</Container>
